@@ -18,6 +18,20 @@ export default (state = posts, action) => {
                     return post
                 }
             })
+        case "REMOVE_POST":
+            console.log(action.id);
+            return state.filter(({ id }) => id !== action.id);
+        case "ADD_COMMENT":
+            return state.map((post) => {
+                if (post.id === action.id) {
+                    return {
+                        ...post,
+                        ...action.comment
+                    }
+                } else {
+                    return post
+                }
+            })
         default:
             return state;
     }

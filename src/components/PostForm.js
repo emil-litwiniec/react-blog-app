@@ -13,6 +13,7 @@ export default class PostForm extends Component {
             text: props.post ? props.post.text : "",
             createdAt: props.post ? props.post.createdAt : moment().format(),
             likes: props.post ? props.post.likes : 0,
+            comments: [],
             error: ""
         };
     }
@@ -33,6 +34,7 @@ export default class PostForm extends Component {
                 text: this.state.text,
                 createdAt: this.state.createdAt,
                 likes: this.state.likes,
+                comments: this.state.comments
             });
         }
 

@@ -6,7 +6,8 @@ const posts = [
         text: "Some text about text. It can be much longer than a subtitle and much much much longer than a title. It's a text about some text living in the text key in some post object from posts array.",
         likes: 0,
         createdAt: 0,
-        image: 'image1.jpg'
+        image: 'image1.jpg',
+        comments: []
     },
     {
         id: '2',
@@ -15,7 +16,8 @@ const posts = [
         text: "Some text about text. It can be much longer than a subtitle and much much much longer than a title. It's a text about some text living in the text key in some post object from posts array.",
         likes: 0,
         createdAt: 0,
-        image: 'image2.png'
+        image: 'image2.png',
+        comments: []
     },
     {
         id: '3',
@@ -24,7 +26,8 @@ const posts = [
         text: "Some text about textd. It can be much longer than a subtitle and much much much longer than a title. It's a text about some text living in the text key in some post object from posts array.",
         likes: 0,
         createdAt: 0,
-        image: 'image3.png'
+        image: 'image3.png',
+        comments: []
     }
 ];
 

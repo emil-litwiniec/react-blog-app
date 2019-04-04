@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import MainHeader from "./MainHeader";
 import Post from "./Post";
+import CommentsList from "./CommentsList";
 
 
 
@@ -14,7 +15,7 @@ const PostPage = (props) => {
             <MainHeader />
             <Post paramsId={paramsId} />
             <p>Hello, this is post page!</p>
-            {/* >>>> COMMENT SECTION <<<< */}
+            <CommentsList postId={paramsId} />
         </div>
     )
 }

@@ -9,3 +9,14 @@ export const editPost = (id, updates) => ({
     id,
     updates
 });
+
+export const removePost = (id) => ({
+    type: "REMOVE_POST",
+    id
+})
+
+export const addComment = (id, comment) => ({
+    type: "ADD_COMMENT",
+    id,
+    comment
+})
