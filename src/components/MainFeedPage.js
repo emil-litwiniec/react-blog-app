@@ -9,7 +9,6 @@ import SideMenu from "../components/SideMenu";
 const MainFeedPage = () => {
     return (
         <div>
-            {/* <p>Something</p> */}
             <MainHeader />
             <PostPreviewList />
             <SideMenu />

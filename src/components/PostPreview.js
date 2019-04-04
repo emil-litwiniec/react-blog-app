@@ -6,8 +6,8 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image }) => {
     // console.log(props);
     return (
         <div>
-            {/* <img src="" alt="Post's image" /> */}
-            <p>{image}</p>
+            <img src={`/images/${image}`} alt="Post's image" />
+            {/* <p>{image}</p> */}
             <div>
                 <div>
                     {/* <p>Apr 3 20:15</p>
@@ -20,7 +20,7 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image }) => {
                 </div>
                 <h2>{id}: {title}</h2>
                 <p>{subtitle}</p>
-                <Link to="/post/:id">read more...</Link>
+                <Link to={`/post/${id}`}>read more...</Link>
             </div>
         </div>
     )
