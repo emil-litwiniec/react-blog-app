@@ -1,17 +1,26 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import PostPreview from "../components/PostPreview";
 
 
 
-const PostPreviewList = () => {
-    const dummyArray = [1, 2, 3];
+
+const PostPreviewList = (props) => {
+    console.log(props.posts);
     return (
         <div>
             <p>Something...</p>
-            {dummyArray.map((item) => <PostPreview id={item} />)}
+            {props.posts.map((post) => <PostPreview key={post.id} {...post} />)}
         </div>
     )
 }
 
-export { PostPreviewList as default };
+
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts
+    }
+}
+
+export default connect(mapStateToProps)(PostPreviewList);
