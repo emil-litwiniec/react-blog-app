@@ -10,7 +10,7 @@ const PostPreviewList = (props) => {
     console.log(props.posts);
     return (
         <div>
-            <p>Something...</p>
+            <p>SSomething...</p>
             {props.posts.map((post) => <PostPreview key={post.id} {...post} />)}
         </div>
     )
