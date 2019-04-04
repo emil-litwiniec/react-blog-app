@@ -10,6 +10,7 @@ import MainFeedPage from "../components/MainFeedPage";
 import PostPreview from "../components/PostPreview";
 import PostPage from "../components/PostPage";
 import PostCreatePage from "../components/PostCreatePage";
+import PostEditPage from "../components/PostEditPage";
 
 export const history = createBrowserHistory();
 
@@ -20,6 +21,7 @@ const AppRouter = () => (
                 <PublicRoute exact path="/" component={MainFeedPage} />
                 <PublicRoute path={"/post/:id"} component={PostPage} />
                 <PublicRoute path={"/create"} component={PostCreatePage} />
+                <PublicRoute path={"/edit/:id"} component={PostEditPage} />
                 <PublicRoute path="/login" component={LoginPage} />
                 <PrivateRoute
                     path="/dashboard"

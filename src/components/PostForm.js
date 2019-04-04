@@ -7,12 +7,12 @@ export default class PostForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: uuid(),
-            title: "",
-            subtitle: "",
-            text: "",
-            createdAt: moment().format(),
-            likes: 0,
+            id: props.post ? props.post.id : uuid(),
+            title: props.post ? props.post.title : "",
+            subtitle: props.post ? props.post.subtitle : "",
+            text: props.post ? props.post.text : "",
+            createdAt: props.post ? props.post.createdAt : moment().format(),
+            likes: props.post ? props.post.likes : 0,
             error: ""
         };
     }
@@ -50,40 +50,42 @@ export default class PostForm extends Component {
         this.setState(() => ({ subtitle }));
     }
 
+
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
-                {this.state.error && <p>{this.state.error}</p>}
-                <label htmlFor="title">Title: </label>
-                <input
-                    type="text"
-                    name="title"
-                    value={this.state.title}
-                    onChange={this.onTitleChange}
-                />
+            <>
+                <form onSubmit={this.onSubmit}>
+                    {this.state.error && <p>{this.state.error}</p>}
+                    <label htmlFor="title">Title: </label>
+                    <textarea
+                        name="title"
+                        value={this.state.title}
+                        onChange={this.onTitleChange}
+                    />
 
-                <label htmlFor="subtitle">Subtitle:</label>
-                <input
-                    name="subtitle"
-                    type="text"
-                    value={this.state.subtitle}
-                    onChange={this.onSubtitleChange}
-                />
+                    <label htmlFor="subtitle">Subtitle:</label>
+                    <textarea
+                        name="subtitle"
 
-                <label htmlFor="textContent">Text:</label>
-                <textarea
-                    name="textContent"
-                    placeholder="Your article goes here..."
-                    val={this.state.text}
-                    onChange={this.onTextChange}
+                        value={this.state.subtitle}
+                        onChange={this.onSubtitleChange}
+                    />
 
-                />
+                    <label htmlFor="textContent">Text:</label>
+                    <textarea
+                        name="textContent"
+                        placeholder="Your article goes here..."
+                        value={this.state.text}
+                        onChange={this.onTextChange}
 
-                <label htmlFor="chooseImage">Choose main picture:</label>
-                <input name="chooseImage" type="file" accept="image/png, image/jpeg" />
-                <button >Abort</button>
-                <button type="submit" >Submit</button>
-            </form>
+                    />
+
+                    <label htmlFor="chooseImage">Choose main picture:</label>
+                    <input name="chooseImage" type="file" accept="image/png, image/jpeg" />
+                    <button type="submit" >Submit</button>
+                    <button onClick={this.props.onAbort}>Abort</button>
+                </form>
+            </>
         )
     }
 }

@@ -21,6 +21,8 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image }) => {
                 <h2>{id}: {title}</h2>
                 <p>{subtitle}</p>
                 <Link to={`/post/${id}`}>read more...</Link>
+                <Link to={`/edit/${id}`}>edit post</Link>
+
             </div>
         </div>
     )

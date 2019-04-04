@@ -10,13 +10,16 @@ export class PostCreatePage extends Component {
         this.props.createPost(post);
         this.props.history.push('/');
     };
+    onAbort = () => {
+        this.props.history.push('/');
+    }
 
     render() {
         return (
             <div>
                 <h2>Create a post</h2>
                 <button>Login</button>
-                <PostForm onSubmit={this.onSubmit} />
+                <PostForm onSubmit={this.onSubmit} onAbort={this.onAbort} />
             </div>
         )
     }
