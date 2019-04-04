@@ -5,7 +5,7 @@ console.log(typeof posts);
 
 export default (state = posts, action) => {
     switch (action.type) {
-        case "ADD_POST":
+        case "CREATE_POST":
             return [...state, action.post]
         default:
             return state;

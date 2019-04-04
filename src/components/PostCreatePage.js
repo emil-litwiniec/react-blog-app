@@ -2,23 +2,33 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import PostForm from "./PostForm";
+import { createPost } from "../actions/posts";
 
 
-class PostCreatePage extends Component {
+export class PostCreatePage extends Component {
+    onSubmit = post => {
+        this.props.createPost(post);
+        this.props.history.push('/');
+    };
+
     render() {
         return (
             <div>
                 <h2>Create a post</h2>
                 <button>Login</button>
-                <PostForm />
+                <PostForm onSubmit={this.onSubmit} />
             </div>
         )
     }
 }
 
+const mapDispatchToProps = (dispatch) => ({
 
+    createPost: (post) => dispatch(createPost(post))
 
-export default PostCreatePage;
+});
+
+export default connect(undefined, mapDispatchToProps)(PostCreatePage);
 
 
 
