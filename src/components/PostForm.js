@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from "moment";
 import uuid from "uuid/v1";
 
+import { storage } from "../firebase/firebase";
+
 
 export default class PostForm extends Component {
     constructor(props) {
@@ -13,6 +15,7 @@ export default class PostForm extends Component {
             text: props.post ? props.post.text : "",
             createdAt: props.post ? props.post.createdAt : moment().format(),
             likes: props.post ? props.post.likes : 0,
+            image: props.post ? props.post.image : uuid(),
             comments: [],
             error: ""
         };
@@ -20,7 +23,7 @@ export default class PostForm extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-
+        console.log(e);
         if (!this.state.title || !this.state.subtitle || !this.state.text) {
             this.setState(() => ({
                 error: "Please provide title, subtitle and text."
@@ -34,8 +37,10 @@ export default class PostForm extends Component {
                 text: this.state.text,
                 createdAt: this.state.createdAt,
                 likes: this.state.likes,
+                image: this.state.image,
                 comments: this.state.comments
             });
+
         }
 
     };
@@ -51,12 +56,21 @@ export default class PostForm extends Component {
         const subtitle = e.target.value;
         this.setState(() => ({ subtitle }));
     }
+    onFileChange = () => {
+        const file = document.getElementById('fileId').files[0];
+
+
+        // console.log(storageRef);
+        storage.ref(`images/image_${this.state.image}.png`).put(file).then((snapshot) => console.log('Uploaded file. ____   ', snapshot)).catch((e) => console.log(e));
+    }
+
+
 
 
     render() {
         return (
             <>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} >
                     {this.state.error && <p>{this.state.error}</p>}
                     <label htmlFor="title">Title: </label>
                     <textarea
@@ -83,10 +97,13 @@ export default class PostForm extends Component {
                     />
 
                     <label htmlFor="chooseImage">Choose main picture:</label>
-                    <input name="chooseImage" type="file" accept="image/png, image/jpeg" />
+                    <input id="fileId" onChange={this.onFileChange} name="chooseImage" type="file" accept="image/png, image/jpeg" method="post" encType="multipart/form-data" />
                     <button type="submit" >Submit</button>
                     <button onClick={this.props.onAbort}>Abort</button>
                 </form>
+
+                <button onClick={this.downloadImage}></button>
+                <img id="imageHolder" src="" alt="Image from firebase..." />
             </>
         )
     }
