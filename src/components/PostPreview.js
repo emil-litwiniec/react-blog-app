@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { removePost } from "../actions/posts";
 import { storage } from "../firebase/firebase";
-
+import moment from "moment";
 
 const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost }) => {
     // console.log(props);
+
+
     const handleRemove = () => {
         removePost(id);
     }
@@ -17,7 +19,7 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost 
 
     const downloadImage = async () => {
         try {
-            await storage.ref(`images/image_${image}.png`).getDownloadURL().then((url) => {
+            await storage.ref(`images/image_${image}`).getDownloadURL().then((url) => {
                 const img = document.getElementById(`${id}`);
                 img.src = url;
 
@@ -27,6 +29,8 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost 
             console.log(error)
         }
     }
+    const date = moment(createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+
 
     return (
         <div>
@@ -34,11 +38,12 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost 
             {/* <p>{image}</p> */}
             <div>
                 <div>
-                    <p>{createdAt}</p>
+
+                    <p>{date}</p>
                     <p>Likes {likes}</p>
                     <img id={id} src="" alt="Firebase image test ..." />
                 </div>
-                <h2>{id}: {title}</h2>
+                <h2>{title}</h2>
                 <p>{subtitle}</p>
                 <Link to={`/post/${id}`}>read more...</Link>
                 <Link to={`/edit/${id}`}>edit post</Link>

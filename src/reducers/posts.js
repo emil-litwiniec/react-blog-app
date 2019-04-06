@@ -32,6 +32,19 @@ export default (state = posts, action) => {
                     return post
                 }
             })
+        case "ADD_LIKE":
+            return state.map((post) => {
+                if (post.id === action.id) {
+                    // const addLike = post.likes + 1;
+                    return {
+                        ...post,
+                        likes: post.likes + 1
+                    }
+                } else {
+                    return post
+                }
+            })
+
         default:
             return state;
     }

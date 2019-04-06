@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { storage } from "../firebase/firebase";
+import moment from 'moment';
+
+import Likes from "./Likes";
 
 // class Post extends Component {
 
@@ -42,7 +45,7 @@ class Post extends Component {
         this.downloadImage();
     }
     downloadImage = () => {
-        storage.ref(`images/image_${this.props.post.image}.png`).getDownloadURL().then((url) => {
+        storage.ref(`images/image_${this.props.post.image}`).getDownloadURL().then((url) => {
             const img = document.getElementById('imageHolder');
             img.src = url;
 
@@ -54,9 +57,11 @@ class Post extends Component {
             <div>
                 <img id="imageHolder" onLoad={this.downloadImage} src="" alt="Firebase image test ..." />
                 {/* {console.log(this.props.post.image)} */}
+                <p>{moment(this.props.post.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</p>
                 <h2>{this.props.post.title}</h2>
                 <h4>{this.props.post.subtitle}</h4>
                 <p>{this.props.post.text}</p>
+                <Likes paramsId={this.props.post.id} />
             </div>
         )
     }

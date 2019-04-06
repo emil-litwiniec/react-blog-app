@@ -19,4 +19,11 @@ export const addComment = (id, comment) => ({
     type: "ADD_COMMENT",
     id,
     comment
+});
+
+
+export const addLike = (id, likes) => ({
+    type: "ADD_LIKE",
+    id,
+    likes
 })

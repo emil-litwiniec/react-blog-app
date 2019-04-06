@@ -61,7 +61,7 @@ export default class PostForm extends Component {
 
 
         // console.log(storageRef);
-        storage.ref(`images/image_${this.state.image}.png`).put(file).then((snapshot) => console.log('Uploaded file. ____   ', snapshot)).catch((e) => console.log(e));
+        storage.ref(`images/image_${this.state.image}`).put(file).then((snapshot) => console.log('Uploaded file. ____   ', snapshot)).catch((e) => console.log(e));
     }
 
 
