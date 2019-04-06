@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { removePost } from "../actions/posts";
+import { storage } from "../firebase/firebase";
 
 
 const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost }) => {
@@ -9,21 +10,33 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost 
     const handleRemove = () => {
         removePost(id);
     }
+    useEffect(() => {
+        downloadImage();
+        console.log(image, "____", title);
+    })
 
-    // console.log('hahaha : ', id)
+    const downloadImage = async () => {
+        try {
+            await storage.ref(`images/image_${image}.png`).getDownloadURL().then((url) => {
+                const img = document.getElementById(`${id}`);
+                img.src = url;
+
+            }).catch(e => console.log(e));
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div>
-            <img src={`/images/${image}`} alt="Post's image" />
+            {/* <img src={`/images/${image}`} alt="Post's image" /> */}
             {/* <p>{image}</p> */}
             <div>
                 <div>
-                    {/* <p>Apr 3 20:15</p>
-                    <p>Likes 544</p
-                </div>
-                <h2>{props.id}: Post Title</h2>
-                <p>Some text that is kind of subtitle</p> */}
                     <p>{createdAt}</p>
                     <p>Likes {likes}</p>
+                    <img id={id} src="" alt="Firebase image test ..." />
                 </div>
                 <h2>{id}: {title}</h2>
                 <p>{subtitle}</p>
