@@ -17,7 +17,8 @@ export default class PostForm extends Component {
             likes: props.post ? props.post.likes : 0,
             image: props.post ? props.post.image : uuid(),
             comments: [],
-            error: ""
+            error: "",
+            loadingPhase: 0
         };
     }
 
@@ -59,15 +60,31 @@ export default class PostForm extends Component {
     onFileChange = () => {
         const file = document.getElementById('fileId').files[0];
 
+        this.setState({
+            loadingPhase: 1
+        });
+
 
         // console.log(storageRef);
-        storage.ref(`images/image_${this.state.image}`).put(file).then((snapshot) => console.log('Uploaded file. ____   ', snapshot)).catch((e) => console.log(e));
+        storage.ref(`images/image_${this.state.image}`).put(file).then((snapshot) => this.downloadImage()).catch((e) => console.log(e));
+
+    }
+    downloadImage = () => {
+        storage.ref(`images/image_${this.state.image}`).getDownloadURL().then((url) => {
+            this.setState({
+                loadingPhase: 2
+            });
+            let img = document.getElementById('imageHolder');
+            img.src = url;
+
+        }).catch(e => console.log(e));
     }
 
 
 
 
     render() {
+
         return (
             <>
                 <form onSubmit={this.onSubmit} >
@@ -102,8 +119,13 @@ export default class PostForm extends Component {
                     <button onClick={this.props.onAbort}>Abort</button>
                 </form>
 
-                <button onClick={this.downloadImage}></button>
-                <img id="imageHolder" src="" alt="Image from firebase..." />
+                {/* <button onClick={this.downloadImage}></button> */}
+                {[
+                    null,
+                    <p>Loading image...</p>,
+                    <img id="imageHolder" src="" alt="Image from firebase..." />
+                ][this.state.loadingPhase]
+                }
             </>
         )
     }
