@@ -46,7 +46,7 @@ class Post extends Component {
     }
     downloadImage = () => {
         storage.ref(`images/image_${this.props.post.image}`).getDownloadURL().then((url) => {
-            const img = document.getElementById('imageHolder');
+            let img = document.getElementById('imageHolder');
             img.src = url;
 
         }).catch(e => console.log(e));

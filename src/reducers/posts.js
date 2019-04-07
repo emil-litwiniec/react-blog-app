@@ -43,6 +43,49 @@ export default (state = posts, action) => {
                 } else {
                     return post
                 }
+            });
+
+        case "ADD_COMMENT_LIKE":
+            // return state.find(post => post.id === action.id)
+            //     .comments
+            //     .map(comment => {
+            //         if (comment.id === action.commentID) {
+            //             return {
+            //                 ...comment,
+            //                 likes: comment.likes + 1
+            //             }
+            //         } else {
+            //             return comment
+            //         }
+            //     });
+
+            const { commentID, id } = action;
+            console.log("commentID", commentID);
+            console.log("id", id);
+            console.log("action", action);
+            return state.map(post => {
+                if (post.id === id) {
+
+                    return {
+                        ...post,
+                        comments:
+                            post.comments.map((comment) => {
+                                if (comment.id === commentID) {
+                                    return {
+                                        ...comment,
+                                        likes: comment.likes + 1
+                                    }
+                                } else {
+                                    return comment
+                                }
+                            })
+
+
+
+                    }
+                } else {
+                    return post
+                }
             })
 
         default:

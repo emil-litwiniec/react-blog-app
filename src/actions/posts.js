@@ -27,3 +27,9 @@ export const addLike = (id, likes) => ({
     id,
     likes
 })
+
+export const addCommentLike = (id, commentID) => ({
+    type: "ADD_COMMENT_LIKE",
+    id,
+    commentID
+})

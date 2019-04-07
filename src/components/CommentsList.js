@@ -38,8 +38,10 @@ const mapStateToProps = (state, props) => ({
     post: state.posts.find(post => post.id === props.postId)
 })
 
+
+
 const mapDispatchToProps = (dispatch) => ({
     addComment: (id, comment) => dispatch(addComment(id, comment))
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsList);

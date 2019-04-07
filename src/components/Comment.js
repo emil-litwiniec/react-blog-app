@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { addComment } from '../actions/posts';
+import { addCommentLike } from '../actions/posts';
 
 
 
-const Comment = ({ id, author, createdAt, text, postId }) => {
+const Comment = ({ id, author, createdAt, text, likes, postId, comments, addCommentLike }) => {
+    const [isClicked, setIsClicked] = useState(false);
+    console.log(comments);
+    const handleLike = () => {
+        setIsClicked(true);
+        addCommentLike(postId, id);
+    }
     return (
         <div>
             <img src="" alt="Avatar" />
@@ -13,19 +19,19 @@ const Comment = ({ id, author, createdAt, text, postId }) => {
                 <h4>{author}</h4>
                 <p>{createdAt}</p>
                 <p>{text}</p>
-                <button onClick={() => console.log('id: ', id, "   postId: ", postId)}>Like</button>
+                <button onClick={handleLike} disabled={isClicked}>Like</button>
             </div>
         </div>
     )
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addComment: (id, comment) => dispatch(addComment(id, comment))
+    addCommentLike: (id, commentID) => dispatch(addCommentLike(id, commentID))
+});
+
+const mapStateToProps = (state, props) => ({
+    comments: state.posts.find(post => post.id === props.postId).comments
 })
 
-// const mapStateToProps = (state) => ({
-//     comment: 
-// })
 
-
-export default connect(undefined, mapDispatchToProps)(Comment);
+export default connect(mapStateToProps, mapDispatchToProps)(Comment);
