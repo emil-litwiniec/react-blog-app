@@ -44,19 +44,52 @@ export default (state = posts, action) => {
                     return post
                 }
             });
+        case "SUBSTRACT_LIKE":
+            return state.map((post) => {
+                if (post.id === action.id && post.likes > 0) {
+                    // const addLike = post.likes + 1;
+                    return {
+                        ...post,
+                        likes: post.likes - 1
+                    }
+                } else {
+                    return post
+                }
+            });
 
         case "ADD_COMMENT_LIKE":
-            const { commentID, id } = action;
             return state.map(post => {
-                if (post.id === id) {
+                if (post.id === action.id) {
                     return {
                         ...post,
                         comments:
                             post.comments.map((comment) => {
-                                if (comment.id === commentID) {
+                                if (comment.id === action.commentID) {
                                     return {
                                         ...comment,
                                         likes: comment.likes + 1
+                                    }
+                                } else {
+                                    return comment
+                                }
+                            })
+                    }
+                } else {
+                    return post
+                }
+            })
+        case "SUBSTRACT_COMMENT_LIKE":
+            // let { commentID, id } = action;
+            return state.map(post => {
+                if (post.id === action.id) {
+                    return {
+                        ...post,
+                        comments:
+                            post.comments.map((comment) => {
+                                if (comment.id === action.commentID && comment.likes > 0) {
+                                    return {
+                                        ...comment,
+                                        likes: comment.likes - 1
                                     }
                                 } else {
                                     return comment

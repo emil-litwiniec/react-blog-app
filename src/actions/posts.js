@@ -22,14 +22,23 @@ export const addComment = (id, comment) => ({
 });
 
 
-export const addLike = (id, likes) => ({
+export const addLike = (id) => ({
     type: "ADD_LIKE",
-    id,
-    likes
+    id
+})
+
+export const substractLike = (id) => ({
+    type: "SUBSTRACT_LIKE",
+    id
 })
 
 export const addCommentLike = (id, commentID) => ({
     type: "ADD_COMMENT_LIKE",
+    id,
+    commentID
+})
+export const substractCommentLike = (id, commentID) => ({
+    type: "SUBSTRACT_COMMENT_LIKE",
     id,
     commentID
 })

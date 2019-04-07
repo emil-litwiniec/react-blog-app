@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { addCommentLike } from '../actions/posts';
+import { addCommentLike, substractCommentLike } from '../actions/posts';
 
 
 
-const Comment = ({ id, author, createdAt, text, likes, postId, comments, addCommentLike }) => {
-    const [isClicked, setIsClicked] = useState(false);
+const Comment = ({ id, author, createdAt, text, likes, postId, comments, addCommentLike, substractCommentLike }) => {
+    const [isLiked, setIsLiked] = useState(false);
     console.log(comments);
-    const handleLike = () => {
-        setIsClicked(true);
+    const handleAddLike = () => {
+        setIsLiked(true);
         addCommentLike(postId, id);
+    }
+    const handleSubstractLike = () => {
+        setIsLiked(false);
+        substractCommentLike(postId, id);
     }
     return (
         <div>
@@ -20,14 +24,20 @@ const Comment = ({ id, author, createdAt, text, likes, postId, comments, addComm
                 <p>{createdAt}</p>
                 <p>{text}</p>
                 <p>{likes}</p>
-                <button onClick={handleLike} disabled={isClicked}>Like</button>
+
+                {isLiked ?
+                    <button onClick={handleSubstractLike} >Unlike</button>
+                    :
+                    <button onClick={handleAddLike}>Like</button>
+                }
             </div>
         </div>
     )
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addCommentLike: (id, commentID) => dispatch(addCommentLike(id, commentID))
+    addCommentLike: (id, commentID) => dispatch(addCommentLike(id, commentID)),
+    substractCommentLike: (id, commentID) => dispatch(substractCommentLike(id, commentID))
 });
 
 const mapStateToProps = (state, props) => ({
