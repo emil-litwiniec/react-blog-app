@@ -1,7 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-const MainNavbar = () => {
+import { setTextFilter } from "../actions/filters";
+
+
+
+const MainNavbar = ({ setTextFilter, filters }) => {
+
+    const handleSearch = (e) => {
+        setTextFilter(e.target.value)
+    }
+
     return (
         <nav>
             <ul>
@@ -9,15 +19,28 @@ const MainNavbar = () => {
                 <li><NavLink to="/about">About</NavLink></li>
                 <li><NavLink to="/charity">Charity</NavLink></li>
                 <li><NavLink to="/tags">Tags</NavLink></li>
-                <form action="">
-                    <input type="text" />
-                    <button type="submit">Search</button>
-                </form>
+
+                <input
+                    onChange={handleSearch}
+                    value={filters.text}
+                    placeholder="Search posts"
+                    type="text"
+                />
+
+
             </ul>
         </nav>
     )
 }
 
 
+const mapDispatchToProps = (dispatch) => ({
+    setTextFilter: text => dispatch(setTextFilter(text))
+});
 
-export { MainNavbar as default };
+const mapStateToProps = (state) => ({
+    filters: state.filters
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainNavbar);

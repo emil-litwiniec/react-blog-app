@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import PostPreview from "../components/PostPreview";
 
+import selectPosts from "../selectors/posts";
+
 
 
 
@@ -19,8 +21,9 @@ const PostPreviewList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.posts
+        posts: selectPosts(state.posts, state.filters)
     }
 }
+
 
 export default connect(mapStateToProps)(PostPreviewList);

@@ -19,6 +19,7 @@ const Comment = ({ id, author, createdAt, text, likes, postId, comments, addComm
                 <h4>{author}</h4>
                 <p>{createdAt}</p>
                 <p>{text}</p>
+                <p>{likes}</p>
                 <button onClick={handleLike} disabled={isClicked}>Like</button>
             </div>
         </div>
