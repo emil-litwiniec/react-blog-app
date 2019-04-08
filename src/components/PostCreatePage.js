@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import PostForm from "./PostForm";
-import { createPost } from "../actions/posts";
+import { startCreatePost } from "../actions/posts";
 
 
 export class PostCreatePage extends Component {
     onSubmit = post => {
-        this.props.createPost(post);
+        this.props.startCreatePost(post);
         this.props.history.push('/');
     };
     onAbort = () => {
@@ -27,7 +27,7 @@ export class PostCreatePage extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
 
-    createPost: (post) => dispatch(createPost(post))
+    startCreatePost: (post) => dispatch(startCreatePost(post))
 
 });
 

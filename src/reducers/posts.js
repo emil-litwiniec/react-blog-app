@@ -1,12 +1,12 @@
-import posts from "../tests/fixtures/posts";
+// import posts from "../tests/fixtures/posts";
 
-console.log(typeof posts);
+// console.log(typeof posts);
 
 
-export default (state = posts, action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case "CREATE_POST":
-            return [...state, action.post]
+            return [action.post, ...state,]
         case "EDIT_POST":
             return state.map(post => {
                 if (post.id === action.id) {
@@ -22,8 +22,12 @@ export default (state = posts, action) => {
             console.log(action.id);
             return state.filter(({ id }) => id !== action.id);
         case "ADD_COMMENT":
+            // console.log("ADD COMMENT triggered")
             return state.map((post) => {
+                console.log("reducers POST ID:", post.id)
+                console.log("reducers ACTION ID:", action.id)
                 if (post.id === action.id) {
+                    console.log('Should work....')
                     return {
                         ...post,
                         ...action.comment
@@ -100,6 +104,8 @@ export default (state = posts, action) => {
                     return post
                 }
             })
+        case "SET_POSTS":
+            return action.posts;
 
         default:
             return state;

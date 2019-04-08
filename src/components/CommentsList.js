@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { addComment } from '../actions/posts';
+import { startAddComment } from '../actions/posts';
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 // import comments from "../tests/fixtures/comments";
@@ -17,7 +17,21 @@ class CommentsList extends Component {
 
     onSubmit = (comment) => {
         console.log("comment: ", comment);
-        this.props.addComment(this.props.post.id, { comments: [...this.props.post.comments, comment] });
+
+
+        if (!this.props.post.comments) {
+            this.props.startAddComment(this.props.post.id, { comments: [comment] })
+
+            console.log('there are no comments')
+        } else {
+
+            console.log('there are some comments')
+            console.log('there are some comments')
+            this.props.startAddComment(this.props.post.id, { comments: [...this.props.post.comments, comment] });
+        }
+
+
+
     }
 
 
@@ -28,12 +42,14 @@ class CommentsList extends Component {
             <section>
                 <h4>Leave a comment:</h4>
                 <AddComment onSubmit={this.onSubmit} />
-                {this.props.post.comments.map(comment => <Comment key={comment.id} postId={this.props.postId} {...comment} />)}
+                {console.log("post from comments", this.props.post)}
+                {this.props.post.comments && this.props.post.comments.map(comment => <Comment key={comment.id} postId={this.props.postId} {...comment} />)}
             </section>
         )
     }
 };
 
+/// 
 const mapStateToProps = (state, props) => ({
     post: state.posts.find(post => post.id === props.postId)
 })
@@ -41,7 +57,7 @@ const mapStateToProps = (state, props) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-    addComment: (id, comment) => dispatch(addComment(id, comment))
+    startAddComment: (id, comment) => dispatch(startAddComment(id, comment))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsList);

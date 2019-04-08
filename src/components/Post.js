@@ -11,18 +11,25 @@ import Likes from "./Likes";
 class Post extends Component {
 
     componentDidMount() {
+
+
         this.downloadImage();
     }
     downloadImage = () => {
-        storage.ref(`images/image_${this.props.post.image}`).getDownloadURL().then((url) => {
-            let img = document.getElementById('imageHolder');
-            img.src = url;
+        // console.log(this.props.post);
+        if (!(this.props.post.image === "")) {
+            storage.ref(`images/image_${this.props.post.image}`).getDownloadURL().then((url) => {
+                let img = document.getElementById('imageHolder');
+                img.src = url;
 
-        }).catch(e => console.log(e));
+            }).catch(e => console.log(e));
+        }
     }
     render() {
 
         return (
+
+
             <div>
                 <img id="imageHolder" onLoad={this.downloadImage} src="" alt="Firebase image test ..." />
                 {/* {console.log(this.props.post.image)} */}
@@ -35,10 +42,12 @@ class Post extends Component {
         )
     }
 }
+///.find((item) => item.id === props.paramsId)
+
 
 
 const mapStateToProps = (state, props) => {
-    // console.log(typeof props.paramsId);
+    console.log('props', props);
     return {
         post: state.posts.find((item) => item.id === props.paramsId)
     };

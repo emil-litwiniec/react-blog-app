@@ -13,10 +13,10 @@ export default class PostForm extends Component {
             title: props.post ? props.post.title : "",
             subtitle: props.post ? props.post.subtitle : "",
             text: props.post ? props.post.text : "",
-            createdAt: props.post ? props.post.createdAt : moment().format(),
+            createdAt: props.post ? props.post.createdAt : moment().unix(),
             likes: props.post ? props.post.likes : 0,
-            image: props.post ? props.post.image : uuid(),
-            comments: [],
+            image: props.post ? props.post.image : "",
+            comments: null,
             error: "",
             loadingPhase: 0
         };
@@ -32,7 +32,7 @@ export default class PostForm extends Component {
         } else {
             this.setState(() => ({ error: "" }));
             this.props.onSubmit({
-                id: this.state.id,
+                // id: this.state.id,
                 title: this.state.title,
                 subtitle: this.state.subtitle,
                 text: this.state.text,
@@ -59,14 +59,15 @@ export default class PostForm extends Component {
     }
     onFileChange = () => {
         const file = document.getElementById('fileId').files[0];
+        const uploadImage = () => storage.ref(`images/image_${this.state.image}`).put(file).then((snapshot) => this.downloadImage()).catch((e) => console.log(e));
 
         this.setState({
-            loadingPhase: 1
-        });
+            loadingPhase: 1,
+            image: uuid()
+        }, uploadImage);
 
 
         // console.log(storageRef);
-        storage.ref(`images/image_${this.state.image}`).put(file).then((snapshot) => this.downloadImage()).catch((e) => console.log(e));
 
     }
     downloadImage = () => {

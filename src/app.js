@@ -5,6 +5,7 @@ import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import AppRouter, { history } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
+import { startSetPosts } from "../src/actions/posts";
 import { login, logout } from "./actions/auth";
 import "react-dates/lib/css/_datepicker.css";
 import { firebase } from "./firebase/firebase";
@@ -26,6 +27,8 @@ const renderApp = () => {
 };
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
+
+store.dispatch(startSetPosts());
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
