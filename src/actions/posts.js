@@ -54,7 +54,19 @@ export const startEditPost = (id, updates) => {
 export const removePost = (id) => ({
     type: "REMOVE_POST",
     id
-})
+});
+
+
+export const startRemovePost = (id) => {
+    return dispatch => {
+        return database
+            .ref(`posts/${id}`)
+            .remove()
+            .then(() => {
+                dispatch(removePost(id));
+            })
+    }
+}
 
 
 export const setPosts = posts => ({

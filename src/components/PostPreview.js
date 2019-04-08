@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { removePost } from "../actions/posts";
+import { startRemovePost } from "../actions/posts";
 import { storage } from "../firebase/firebase";
 import moment from "moment";
 
-const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost }) => {
+const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemovePost }) => {
     // console.log(props);
 
 
     const handleRemove = () => {
-        removePost(id);
+        startRemovePost(id);
     }
     useEffect(() => {
         downloadImage();
@@ -55,7 +55,7 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, removePost 
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    removePost: id => dispatch(removePost(id))
+    startRemovePost: id => dispatch(startRemovePost(id))
 })
 
 
