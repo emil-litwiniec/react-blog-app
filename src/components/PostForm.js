@@ -16,7 +16,7 @@ export default class PostForm extends Component {
             createdAt: props.post ? props.post.createdAt : moment().unix(),
             likes: props.post ? props.post.likes : 0,
             image: props.post ? props.post.image : "",
-            comments: null,
+            comments: props.post ? props.post.comments : null,
             error: "",
             loadingPhase: 0
         };

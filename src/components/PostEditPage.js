@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PostForm from "./PostForm";
-import { editPost } from "../actions/posts";
+import { startEditPost } from "../actions/posts";
 
 export class PostEditPage extends Component {
     onSubmit = (post) => {
         console.log('hello from onSubmit')
-        this.props.editPost(this.props.post.id, post);
+        this.props.startEditPost(this.props.post.id, post);
         this.props.history.push('/');
     }
     onAbort = () => {
@@ -32,7 +32,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    editPost: (id, post) => dispatch(editPost(id, post))
+    startEditPost: (id, post) => dispatch(startEditPost(id, post))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostEditPage);
