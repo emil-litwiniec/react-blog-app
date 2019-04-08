@@ -165,8 +165,55 @@ export const addCommentLike = (id, commentID) => ({
     id,
     commentID
 })
+
+export const startAddCommentLike = (postId, comment, commentIndex) => {
+
+    const { id, likes } = comment;
+    return (dispatch) => {
+        return database
+            .ref(`posts/${postId}/comments`)
+            .update({
+                [commentIndex]: {
+                    ...comment,
+                    likes: likes + 1
+                }
+            })
+            .then(() => {
+                dispatch(addCommentLike(postId, id))
+            })
+            .catch(e => console.log("startAddCommentLike errror: ", e))
+
+    }
+
+
+}
 export const substractCommentLike = (id, commentID) => ({
     type: "SUBSTRACT_COMMENT_LIKE",
     id,
     commentID
 })
+
+export const startSubstractCommentLike = (postId, comment, commentIndex) => {
+
+    const { id, likes } = comment;
+    if (likes > 0) {
+        return (dispatch) => {
+            return database
+                .ref(`posts/${postId}/comments`)
+                .update({
+                    [commentIndex]: {
+                        ...comment,
+                        likes: likes - 1
+                    }
+                })
+                .then(() => {
+                    dispatch(substractCommentLike(postId, id))
+                })
+                .catch(e => console.log("startAddCommentLike errror: ", e))
+
+        }
+    }
+
+
+}
+

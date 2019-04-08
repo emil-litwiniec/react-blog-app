@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { addCommentLike, substractCommentLike } from '../actions/posts';
+import { startAddCommentLike, startSubstractCommentLike } from '../actions/posts';
 
 
 
-const Comment = ({ id, author, createdAt, text, likes, postId, comments, addCommentLike, substractCommentLike }) => {
+const Comment = ({ id, author, createdAt, text, likes, postId, comments, startAddCommentLike, startSubstractCommentLike }) => {
     const [isLiked, setIsLiked] = useState(false);
-    console.log(comments);
+    const commentIndex = comments.findIndex(comment => comment.id === id);
     const handleAddLike = () => {
         setIsLiked(true);
-        addCommentLike(postId, id);
+        startAddCommentLike(postId, comments[commentIndex], commentIndex);
     }
     const handleSubstractLike = () => {
         setIsLiked(false);
-        substractCommentLike(postId, id);
+        startSubstractCommentLike(postId, comments[commentIndex], commentIndex);
     }
     return (
         <div>
@@ -36,8 +36,8 @@ const Comment = ({ id, author, createdAt, text, likes, postId, comments, addComm
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addCommentLike: (id, commentID) => dispatch(addCommentLike(id, commentID)),
-    substractCommentLike: (id, commentID) => dispatch(substractCommentLike(id, commentID))
+    startAddCommentLike: (id, comment, commentIndex) => dispatch(startAddCommentLike(id, comment, commentIndex)),
+    startSubstractCommentLike: (id, comment, commentIndex) => dispatch(startSubstractCommentLike(id, comment, commentIndex))
 });
 
 const mapStateToProps = (state, props) => ({

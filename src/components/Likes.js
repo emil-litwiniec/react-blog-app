@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-import { startAddLike, substractLike } from "../actions/posts";
+import { startAddLike, startSubstractLike } from "../actions/posts";
 
 
 
@@ -24,7 +24,7 @@ class Likes extends Component {
         this.setState({ isLiked: true });
     }
     handleUnlike = () => {
-        this.props.substractLike(this.props.post.id);
+        this.props.startSubstractLike(this.props.post.id, this.props.post.like);
         this.setState({ isLiked: false });
     }
     render() {
@@ -52,7 +52,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     startAddLike: (id, currentLikes) => dispatch(startAddLike(id, currentLikes)),
-    substractLike: (id) => dispatch(substractLike(id))
+    startSubstractLike: (id) => dispatch(startSubstractLike(id))
 })
 
 
