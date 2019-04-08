@@ -129,10 +129,36 @@ export const addLike = (id) => ({
     id
 })
 
+
+export const startAddLike = (id, currentLikes) => {
+    return (dispatch) => {
+        return database
+            .ref(`posts/${id}`)
+            .update({ likes: currentLikes + 1 })
+            .then(() => {
+                dispatch(addLike(id))
+            })
+    }
+}
+
 export const substractLike = (id) => ({
     type: "SUBSTRACT_LIKE",
     id
 })
+
+export const startSubstractLike = (id, currentLikes) => {
+    if (currentLikes > 0) {
+        console.log('substracting likes from fireabase')
+        return (dispatch) => {
+            return database
+                .ref(`posts/${id}`)
+                .update({ likes: currentLikes - 1 })
+                .then(() => {
+                    dispatch(substractLike(id))
+                })
+        }
+    }
+}
 
 export const addCommentLike = (id, commentID) => ({
     type: "ADD_COMMENT_LIKE",
