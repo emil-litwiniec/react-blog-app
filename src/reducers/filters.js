@@ -10,6 +10,12 @@ export default (state = filtersReducerDefaultState, action) => {
                 ...state,
                 text: action.text
             };
+
+        case "SET_DATE_FILTER":
+            return {
+                ...state,
+                dateFilter: action.dateFilter
+            }
         default:
             return state;
     }

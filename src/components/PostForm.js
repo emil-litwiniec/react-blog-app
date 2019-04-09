@@ -13,7 +13,7 @@ export default class PostForm extends Component {
             title: props.post ? props.post.title : "",
             subtitle: props.post ? props.post.subtitle : "",
             text: props.post ? props.post.text : "",
-            createdAt: props.post ? props.post.createdAt : moment().unix(),
+            createdAt: props.post ? props.post.createdAt : moment(new Date()).unix(),
             likes: props.post ? props.post.likes : 0,
             image: props.post ? props.post.image : "",
             comments: props.post ? props.post.comments : null,

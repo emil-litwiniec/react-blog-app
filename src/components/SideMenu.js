@@ -1,12 +1,21 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { setDateFilter } from "../actions/filters";
 
 
 class SideMenu extends Component {
+
+    handleSetDateFilter = () => {
+        this.props.setDateFilter({ month: 4, year: 2019 })
+    }
+
+
     render() {
         return (
             <div>
-                <a>2019</a>
-                <a>April</a>
+                <a >2019</a>
+                <button onClick={this.handleSetDateFilter}>April</button>
                 <a>March</a>
                 <a>February</a>
                 <a>January</a>
@@ -23,4 +32,9 @@ class SideMenu extends Component {
 };
 
 
-export default SideMenu;
+const mapDispatchToProps = (dispatch) => ({
+    setDateFilter: filterDate => dispatch(setDateFilter(filterDate))
+})
+
+
+export default connect(undefined, mapDispatchToProps)(SideMenu);

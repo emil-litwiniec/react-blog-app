@@ -5,9 +5,9 @@ import { startRemovePost } from "../actions/posts";
 import { storage } from "../firebase/firebase";
 import moment from "moment";
 
+
 const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemovePost }) => {
     // console.log(props);
-
 
     const handleRemove = () => {
         startRemovePost(id);
@@ -29,7 +29,7 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
             console.log(error)
         }
     }
-    const date = moment(createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    const date = moment(createdAt * 1000).format();
 
 
     return (
