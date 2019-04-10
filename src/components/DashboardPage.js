@@ -1,9 +1,27 @@
 import React from "react";
+import MainHeader from "./MainHeader";
+import PostPreviewList from "./PostPreviewList";
+import SideMenu from "./SideMenu";
+import { connect } from "react-redux";
+import { startLogout } from "../actions/auth";
 
-const DashboardPage = () => (
-    <div>
-        Dashboard page content
-    </div>
-);
 
-export default DashboardPage;
+
+
+const DashboardPage = ({ startLogout }) => {
+    return (
+        <div>
+            <button onClick={startLogout}>Logout</button>
+            <MainHeader />
+            <PostPreviewList />
+            <SideMenu />
+        </div>
+    )
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    startLogout: () => dispatch(startLogout())
+})
+
+
+export default connect(undefined, mapDispatchToProps)(DashboardPage);

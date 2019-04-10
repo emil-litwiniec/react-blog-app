@@ -21,13 +21,13 @@ class SideMenu extends Component {
 
         return (
             <div>
-
+                <button onClick={() => this.props.setDateFilter(null)}>See All Posts</button>
                 {this.props.posts &&
                     arrayOfMonths.map(date => {
-                        const id = `${date[0]}-${date[1]}`;
+
 
                         return (<button
-                            id={`${date[0]}-${date[1]}`}
+                            key={`${date[0]}-${date[1]}`}
                             data-month={date[0]}
                             data-year={date[1]}
                             onClick={() => this.props.setDateFilter({ month: date[0], year: date[1] })}

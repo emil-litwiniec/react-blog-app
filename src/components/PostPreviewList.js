@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import PostPreview from "../components/PostPreview";
+import PostPreview from "./PostPreview";
 
 import selectPosts from "../selectors/posts";
 

@@ -1,7 +1,7 @@
 import React from "react";
-import MainHeader from "../components/MainHeader";
-import PostPreviewList from "../components/PostPreviewList";
-import SideMenu from "../components/SideMenu";
+import PublicMainHeader from "./public/PublicMainHeader";
+import PublicPostPreviewList from "./public/PublicPostPreviewList";
+import SideMenu from "./SideMenu";
 
 
 
@@ -9,8 +9,8 @@ import SideMenu from "../components/SideMenu";
 const MainFeedPage = () => {
     return (
         <div>
-            <MainHeader />
-            <PostPreviewList />
+            <PublicMainHeader />
+            <PublicPostPreviewList />
             <SideMenu />
         </div>
     )
