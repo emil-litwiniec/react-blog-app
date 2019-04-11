@@ -1,0 +1,33 @@
+#app {
+    display: grid;
+    grid-template-columns: 1fr 100rem 1fr;
+    height: 100vh;
+    position: relative;
+
+}
+
+.main {
+    grid-column: 2 / 3;
+    // margin-right: -50px;
+    /* maximum width of scrollbar */
+    // padding-right: 50px;
+    /* maximum width of scrollbar */
+    height: 100%;
+    width: 100%;
+    // overflow: hidden;
+
+    position: absolute;
+    // top: -10rem;
+}
+
+.side-menu {
+    grid-column: 3 / 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-preview-list {
+    width: 100%;
+    height: 86vh;
+    overflow-y: scroll;
+}

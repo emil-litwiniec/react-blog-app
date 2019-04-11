@@ -9,12 +9,10 @@ import selectPosts from "../selectors/posts";
 
 
 const PostPreviewList = (props) => {
-    console.log(props.posts);
     return (
-        <div>
-            <p>Something...</p>
+        <section className="post-preview-list">
             {props.posts.map((post) => <PostPreview key={post.id} {...post} />)}
-        </div>
+        </section>
     )
 }
 

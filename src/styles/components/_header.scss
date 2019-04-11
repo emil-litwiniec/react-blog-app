@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+
+    height: 15rem;
+
+    &__title {
+
+
+
+
+        &-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            a {
+                justify-content: center;
+                align-content: center;
+            }
+
+        }
+    }
+}
+
+.header-navbar {
+    // display: flex;
+
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding-bottom: 2rem;
+    }
+
+    &__list-node {
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.side-menu {
+    height: max-content;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+
+    &__list {
+        list-style: none;
+    }
+
+    &__list-node {
+        &:hover {
+            cursor: pointer
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.post-preview {
+    display: flex;
+    width: inherit;
+
+
+    &__image {
+        flex-basis: 50%;
+        width: 100%;
+    }
+
+    &__info {
+        flex: 1;
+    }
+}

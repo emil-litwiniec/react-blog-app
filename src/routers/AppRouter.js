@@ -16,7 +16,7 @@ export const history = createBrowserHistory();
 
 const AppRouter = () => (
     <Router history={history}>
-        <div>
+        <>
             <Switch>
                 <PublicRoute exact path="/" component={MainFeedPage} />
                 <PublicRoute path={"/post/:id"} component={PostPage} />
@@ -29,7 +29,7 @@ const AppRouter = () => (
 
                 <Route component={NotFoundPage} />
             </Switch>
-        </div>
+        </>
     </Router>
 );
 

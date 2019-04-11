@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { Route } from "react-router-dom";
+import SideMenu from "../components/SideMenu";
 
 export const PublicRoute = ({
     isAuthenticated,
@@ -13,7 +14,11 @@ export const PublicRoute = ({
             {...rest}
             component={props =>
 
-                <Component {...props} />
+                <>
+                    <Component {...props} />
+                    <SideMenu />
+
+                </>
 
             }
         />

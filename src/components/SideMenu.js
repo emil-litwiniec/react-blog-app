@@ -20,23 +20,25 @@ class SideMenu extends Component {
         const arrayOfMonths = giveArrayOfMonths(this.props.posts);
 
         return (
-            <div>
-                <button onClick={() => this.props.setDateFilter(null)}>See All Posts</button>
-                {this.props.posts &&
-                    arrayOfMonths.map(date => {
+            <section className="side-menu">
+                <ul className="side-menu__list">
+                    <li className="side-menu__list-node" onClick={() => this.props.setDateFilter(null)}>See All Posts</li>
+                    {this.props.posts &&
+                        arrayOfMonths.map(date => {
 
 
-                        return (<button
-                            key={`${date[0]}-${date[1]}`}
-                            data-month={date[0]}
-                            data-year={date[1]}
-                            onClick={() => this.props.setDateFilter({ month: date[0], year: date[1] })}
-                        >{date[0]}</button>)
-                    }
-                    )}
+                            return (<li
+                                className="side-menu__list-node"
+                                key={`${date[0]}-${date[1]}`}
+                                data-month={date[0]}
+                                data-year={date[1]}
+                                onClick={() => this.props.setDateFilter({ month: date[0], year: date[1] })}
+                            >{date[0]}</li>)
+                        }
+                        )}
+                </ul>
 
-
-            </div>
+            </section>
         )
     }
 };

@@ -1,11 +1,17 @@
 @import './base/base';
+// @import './base/reset';
+
+
+@import './base/page-layout';
 @import './base/settings';
-@import './components/box-layout';
+
+
 @import './components/button';
-@import './components/content-container';
-@import './components/input-group';
-@import './components/inputs';
-@import './components/form';
-@import './components/visibility';
-@import './components/list';
+@import './components/header';
 @import './components/loader';
+@import './components/post-preview';
+@import './components/side-menu';
+@import './components/visibility';
+
+
+@import './typography/typography.scss'

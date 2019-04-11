@@ -8,11 +8,10 @@ import SideMenu from "./SideMenu";
 
 const MainFeedPage = () => {
     return (
-        <div>
+        <main className="main">
             <PublicMainHeader />
             <PublicPostPreviewList />
-            <SideMenu />
-        </div>
+        </main>
     )
 }
 

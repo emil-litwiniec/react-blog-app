@@ -10,12 +10,11 @@ import { startLogout } from "../actions/auth";
 
 const DashboardPage = ({ startLogout }) => {
     return (
-        <div>
+        <main className="main">
             <button onClick={startLogout}>Logout</button>
             <MainHeader />
             <PostPreviewList />
-            <SideMenu />
-        </div>
+        </main>
     )
 }
 
