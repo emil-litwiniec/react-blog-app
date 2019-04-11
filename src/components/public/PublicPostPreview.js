@@ -23,17 +23,19 @@ const PublicPostPreview = ({ id, title, subtitle, createdAt, likes, image }) => 
             console.log(error)
         }
     }
-    const date = moment(createdAt * 1000).format();
+    const date = moment(createdAt * 1000).format("MMM D YYYY");
 
 
     return (
         <div className="post-preview">
             <img className="post-preview__image" id={id} src="" alt="Post image..." />
             <div className="post-preview__info">
+                <div className="post-preview__info-date">
+                    <p className="text-post-preview-info">{date}</p>
+                    <p className="text-post-preview-info">Likes {likes}</p>
 
-                <p>{date}</p>
-                <p>Likes {likes}</p>
-                <h2>{title}</h2>
+                </div>
+                <h2 className="text-post-preview-title">{title}</h2>
                 <p>{subtitle}</p>
                 <Link to={`/post/${id}`}>read more...</Link>
             </div>

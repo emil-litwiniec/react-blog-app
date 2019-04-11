@@ -6,11 +6,13 @@
 
     &__list {
         list-style: none;
+        margin: 20rem 0 0 3rem;
     }
 
     &__list-node {
         &:hover {
-            cursor: pointer
+            cursor: pointer;
+            color: #525252;
         }
     }
 }

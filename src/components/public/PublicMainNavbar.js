@@ -21,11 +21,11 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated,
     return (
         <nav className="header-navbar">
             <ul className="header-navbar__list">
-                <li className="header-navbar__list-node" onClick={startLogin}>Login</li>
+                <li className="header-navbar__list-node text-navbar-link" onClick={startLogin}>Login</li>
                 {/* <li><NavLink to='/dashboard' onClick={handleStartLogin}>Login</NavLink></li> */}
-                <li className="header-navbar__list-node"><NavLink to="/about">About</NavLink></li>
-                <li className="header-navbar__list-node"><NavLink to="/charity">Charity</NavLink></li>
-                <li className="header-navbar__list-node"><NavLink to="/tags">Tags</NavLink></li>
+                <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li>
+                <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/charity">Charity</NavLink></li>
+                <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/tags">Tags</NavLink></li>
 
                 <input
                     onChange={handleSearch}

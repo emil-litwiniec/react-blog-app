@@ -22,13 +22,13 @@ class SideMenu extends Component {
         return (
             <section className="side-menu">
                 <ul className="side-menu__list">
-                    <li className="side-menu__list-node" onClick={() => this.props.setDateFilter(null)}>See All Posts</li>
+                    <li className="side-menu__list-node text-side-menu-link" onClick={() => this.props.setDateFilter(null)}>See All Posts</li>
                     {this.props.posts &&
                         arrayOfMonths.map(date => {
 
 
                             return (<li
-                                className="side-menu__list-node"
+                                className="side-menu__list-node text-side-menu-link"
                                 key={`${date[0]}-${date[1]}`}
                                 data-month={date[0]}
                                 data-year={date[1]}

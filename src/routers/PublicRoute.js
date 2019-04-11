@@ -17,6 +17,8 @@ export const PublicRoute = ({
                 <>
                     <Component {...props} />
                     <SideMenu />
+                    <div className="side-left"></div>
+                    <div className="side-right"></div>
 
                 </>
 

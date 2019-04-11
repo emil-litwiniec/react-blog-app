@@ -38,7 +38,7 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
             {/* <p>{image}</p> */}
             <div>
                 <div>
-
+                    <p>chicken</p>
                     <p>{date}</p>
                     <p>Likes {likes}</p>
                     <img id={id} src="" alt="Firebase image test ..." />
