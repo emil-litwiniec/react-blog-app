@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 
 const MainHeader = () => {
     return (
-        <div>
-            <Link to="/" > <h1>Blogster</h1></Link>
+
+
+        <header className="private-header">
+            <div className='private-header__title'>
+                <Link to="/" > <h1 className="private-text-header" >Admin dashboard</h1></Link>
+            </div>
             <MainNavbar />
-        </div>
+        </header>
     )
 }
 

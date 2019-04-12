@@ -16,9 +16,12 @@ export class PostCreatePage extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Create a post</h2>
-                <button>Login</button>
+            <div className="create-post">
+
+                <header className="create-post__header">
+                    <h2 className="create-post__title" >Create a post</h2>
+                    <button className="button create-post__button">Login</button>
+                </header>
                 <PostForm onSubmit={this.onSubmit} onAbort={this.onAbort} />
             </div>
         )

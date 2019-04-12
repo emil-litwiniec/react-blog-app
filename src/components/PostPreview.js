@@ -14,7 +14,6 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
     }
     useEffect(() => {
         downloadImage();
-        console.log(image, "____", title);
     })
 
     const downloadImage = async () => {
@@ -23,33 +22,45 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
                 const img = document.getElementById(`${id}`);
                 img.src = url;
 
-            }).catch(e => console.log(e));
+            }).catch(e => console.info(e));
 
         } catch (error) {
             console.log(error)
         }
     }
-    const date = moment(createdAt * 1000).format();
+    const date = moment(createdAt * 1000).format("MMM D, H:mm");
 
 
     return (
-        <div>
-            {/* <img src={`/images/${image}`} alt="Post's image" /> */}
-            {/* <p>{image}</p> */}
-            <div>
-                <div>
-                    <p>chicken</p>
-                    <p>{date}</p>
-                    <p>Likes {likes}</p>
-                    <img id={id} src="" alt="Firebase image test ..." />
+
+
+        <div className="private-post-preview">
+            <img className="private-post-preview__image" id={id} src="" alt="Post image..." />
+            <div className="private-post-preview__info">
+                <div className="private-post-preview__info-date">
+
+                    <div className="private-post-preview-info-wrapper">
+                        <p className="text-post-preview-info private-text-post-preview__info">{date}</p>
+                        <span className="text-post-preview-info private-text-post-preview__info"> | </span>
+
+                        <div className="private-post-preview-info__likes">
+                            <p className="text-post-preview-info private-text-post-preview__info"> {likes}</p>
+                            <img className="private-heart-icon" src="./images/heart.svg" alt="Heart icon" />
+                        </div>
+                        <span className="text-post-preview-info private-text-post-preview__info"> | </span>
+                    </div>
+
+                    <div className="private-post-preview-links-wrapper"></div>
+                    <Link className="private-post-preview__text-link" to={`/post/${id}`}>read full article</Link>
+                    <Link className="private-post-preview__text-link" to={`/edit/${id}`}>edit</Link>
+                    <a className="private-post-preview__text-link" onClick={handleRemove}>remove</a>
+
                 </div>
-                <h2>{title}</h2>
-                <p>{subtitle}</p>
-                <Link to={`/post/${id}`}>read more...</Link>
-                <Link to={`/edit/${id}`}>edit post</Link>
-                <button onClick={handleRemove}>Remove this post</button>
+                <h2 className="private-text-post-preview__title">{title}</h2>
+                <p className="private-text-post-preview__subtitle">{subtitle}</p>
 
             </div>
+
         </div>
     )
 };

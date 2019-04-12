@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { Route, Redirect } from "react-router-dom";
 
+import SideMenu from '../components/SideMenu';
+
 
 export const PrivateRoute = ({
     isAuthenticated,
@@ -14,10 +16,12 @@ export const PrivateRoute = ({
             component={props =>
                 isAuthenticated ? (
                     <>
-                        {console.log('Logged in bro')}
-                        <Component {...props} />.
+                        <Component {...props} />
 
-                </>
+                        <div className="side-left"></div>
+                        <div className="side-right"></div>
+
+                    </>
                 ) : (
                         <Redirect to="/" />
                     )

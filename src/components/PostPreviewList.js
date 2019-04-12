@@ -5,13 +5,17 @@ import PostPreview from "./PostPreview";
 
 import selectPosts from "../selectors/posts";
 
+import SimpleBar from 'simplebar-react';
 
+import 'simplebar/dist/simplebar.min.css';
 
 
 const PostPreviewList = (props) => {
     return (
         <section className="post-preview-list">
-            {props.posts.map((post) => <PostPreview key={post.id} {...post} />)}
+            <SimpleBar>
+                {props.posts.map((post) => <PostPreview key={post.id} {...post} />)}
+            </SimpleBar>
         </section>
     )
 }

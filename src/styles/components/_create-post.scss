@@ -1,0 +1,30 @@
+.create-post {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-size: 2.8rem;
+    }
+
+    &__button {
+        text-decoration: none;
+        background: inherit;
+        border: none;
+        outline: none;
+
+
+        &:hover {
+            background: inherit;
+        }
+
+        &:focus,
+        :active {
+            outline: none;
+        }
+    }
+}
