@@ -19,8 +19,26 @@
     padding-top: 2rem;
     font-size: 3.2rem;
     line-height: 1.2;
+    color: #5a5a5a;
 }
 
 .text-post-preview-info {
     font-size: 1.2rem;
+    letter-spacing: .2rem;
+    color: #707070;
+}
+
+.text-post-preview-subtitle {
+    font-size: 1.6rem;
+    color: #5a5a5a;
+    padding-top: 2.5rem;
+}
+
+.text-post-preview-readmore {
+    display: inline-block;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    color: #9c9c9c;
+    margin-top: 3.5rem;
+    margin-left: 36rem;
 }

@@ -4,14 +4,19 @@ import { connect } from "react-redux";
 import PublicPostPreview from "./PublicPostPreview";
 
 import selectPosts from "../../selectors/posts";
+import SimpleBar from 'simplebar-react';
 
-
-
+import 'simplebar/dist/simplebar.min.css';
 
 const PublicPostPreviewList = (props) => {
+
+
     return (
         <section className="post-preview-list">
-            {props.posts.map((post) => <PublicPostPreview key={post.id} {...post} />)}
+
+            <SimpleBar>
+                {props.posts.map((post) => <PublicPostPreview key={post.id} {...post} />)}
+            </SimpleBar>
         </section>
     )
 }

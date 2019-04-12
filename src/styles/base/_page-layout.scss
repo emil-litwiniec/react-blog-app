@@ -31,7 +31,6 @@
 .post-preview-list {
     width: 100%;
     height: 86vh;
-    overflow-y: scroll;
 }
 
 .side-left {
@@ -48,4 +47,22 @@
     height: 100vh;
     background-color: $off-white;
     z-index: 80;
+}
+
+.simplebar-scrollbar {
+    position: absolute;
+    right: 2px;
+    width: 100px;
+    min-height: 10px;
+}
+
+.simplebar-scrollbar:before {
+    position: absolute;
+    content: "";
+    background: black;
+    border-radius: 4px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s linear;
 }
