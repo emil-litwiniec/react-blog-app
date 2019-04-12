@@ -5,17 +5,25 @@
     &__header {
         display: flex;
         justify-content: space-between;
+        margin-top: 4rem;
+
     }
 
     &__title {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        align-self: flex-end;
+        color: #5a5a5a;
     }
 
     &__button {
+        font-family: $font-primary;
         text-decoration: none;
         background: inherit;
         border: none;
         outline: none;
+        align-self: flex-start;
 
 
         &:hover {
@@ -27,4 +35,72 @@
             outline: none;
         }
     }
+}
+
+.post-form {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // align-content: space-between;
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-size: 2rem;
+        color: #5a5a5a;
+    }
+
+    &__input {
+        border: solid 2px #d6d6d6;
+        background-color: #eeeded;
+        border-radius: 4px;
+        text-decoration: none;
+        resize: none;
+        color: #5a5a5a;
+
+
+        &:hover {
+            border: solid 2px #e6e6e6;
+            background-color: #f5f4f4;
+        }
+
+        &:focus {
+            border: solid 2px #e6e6e6;
+            background-color: #f5f4f4;
+        }
+
+        &--title {
+            height: 10rem;
+        }
+
+        &--subtitle {
+            height: 10rem;
+        }
+
+        &--text {
+            height: 20rem;
+        }
+
+
+    }
+
+    &__subtitle-label {}
+
+    &__subtitle-input {}
+
+    &__text-label {}
+
+    &__text-input {}
+
+    &__file-label {}
+
+    &__file-input {}
+
+    &__submit-btn {}
+
+    &__abort-btn {}
 }

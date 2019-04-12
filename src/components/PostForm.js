@@ -65,11 +65,8 @@ export default class PostForm extends Component {
             loadingPhase: 1,
             image: uuid()
         }, uploadImage);
-
-
-        // console.log(storageRef);
-
     }
+
     downloadImage = () => {
         storage.ref(`images/image_${this.state.image}`).getDownloadURL().then((url) => {
             this.setState({
@@ -77,7 +74,6 @@ export default class PostForm extends Component {
             });
             let img = document.getElementById('imageHolder');
             img.src = url;
-
         }).catch(e => console.log(e));
     }
 
@@ -88,36 +84,49 @@ export default class PostForm extends Component {
 
         return (
             <>
-                <form onSubmit={this.onSubmit} >
+                <form className="post-form" onSubmit={this.onSubmit} >
                     {this.state.error && <p>{this.state.error}</p>}
-                    <label htmlFor="title">Title: </label>
-                    <textarea
-                        name="title"
-                        value={this.state.title}
-                        onChange={this.onTitleChange}
-                    />
+                    <div className="post-form__group">
+                        <label className="post-form__label post-form__label--title" htmlFor="title">Title: </label>
+                        <textarea
+                            className="post-form__input post-form__input--title"
+                            name="title"
+                            value={this.state.title}
+                            onChange={this.onTitleChange}
+                        />
+                    </div>
 
-                    <label htmlFor="subtitle">Subtitle:</label>
-                    <textarea
-                        name="subtitle"
+                    <div className="post-form__group">
+                        <label className="post-form__label post-form__label--subtitle" htmlFor="subtitle">Subtitle:</label>
+                        <textarea
+                            className="post-form__input post-form__input--subtitle"
+                            name="subtitle"
 
-                        value={this.state.subtitle}
-                        onChange={this.onSubtitleChange}
-                    />
+                            value={this.state.subtitle}
+                            onChange={this.onSubtitleChange}
+                        />
+                    </div>
+                    <div className="post-form__group">
+                        <label className="post-form__label post-form__label--text" htmlFor="textContent">Text:</label>
+                        <textarea
+                            className="post-form__input post-form__input--text"
+                            name="textContent"
+                            placeholder="Your article goes here..."
+                            value={this.state.text}
+                            onChange={this.onTextChange}
 
-                    <label htmlFor="textContent">Text:</label>
-                    <textarea
-                        name="textContent"
-                        placeholder="Your article goes here..."
-                        value={this.state.text}
-                        onChange={this.onTextChange}
+                        />
+                    </div>
 
-                    />
+                    <div className="post-form__group">
+                        <label className="post-form__label--file" htmlFor="chooseImage">Choose main picture:</label>
+                        <input className="post-form__input--file" id="fileId" onChange={this.onFileChange} name="chooseImage" type="file" accept="image/png, image/jpeg" method="post" encType="multipart/form-data" />
+                    </div>
 
-                    <label htmlFor="chooseImage">Choose main picture:</label>
-                    <input id="fileId" onChange={this.onFileChange} name="chooseImage" type="file" accept="image/png, image/jpeg" method="post" encType="multipart/form-data" />
-                    <button type="submit" >Submit</button>
-                    <button onClick={this.props.onAbort}>Abort</button>
+                    <div className="post-form__group">
+                        <button className="post-form__submit-btn" type="submit" >Submit</button>
+                        <button className="post-form__abort-btn" onClick={this.props.onAbort}>Abort</button>
+                    </div>
                 </form>
 
                 {/* <button onClick={this.downloadImage}></button> */}

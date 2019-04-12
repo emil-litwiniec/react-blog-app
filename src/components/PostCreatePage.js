@@ -8,10 +8,10 @@ import { startCreatePost } from "../actions/posts";
 export class PostCreatePage extends Component {
     onSubmit = post => {
         this.props.startCreatePost(post);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     };
     onAbort = () => {
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
 
     render() {
@@ -20,7 +20,7 @@ export class PostCreatePage extends Component {
 
                 <header className="create-post__header">
                     <h2 className="create-post__title" >Create a post</h2>
-                    <button className="button create-post__button">Login</button>
+                    {/* <button className="button create-post__button">Login</button> */}
                 </header>
                 <PostForm onSubmit={this.onSubmit} onAbort={this.onAbort} />
             </div>
