@@ -6,14 +6,18 @@
     border-bottom: 1px solid #e1e1e1;
 
     &__image {
-        flex-basis: 50%;
-        width: 100%;
+        // flex-basis: 50%;
+        max-height: 27.5rem;
+        width: 50rem; //
+        // min-width: 100%;
         object-fit: cover;
     }
 
     &__info {
         padding: 1rem 2rem 1rem 2rem;
+        flex-basis: 50%;
         flex: 1;
+        position: relative;
 
     }
 
@@ -25,4 +29,22 @@
     justify-content: space-between;
     border-bottom: 1px solid #e1e1e1;
     padding-bottom: .6rem;
+}
+
+.post-preview-info__likes {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.heart-icon {
+
+
+    // position: absolute;
+    margin-left: .6rem;
+    // top: 1rem;
+    top: -5rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    opacity: .5;
 }

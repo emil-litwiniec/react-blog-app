@@ -15,25 +15,44 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated,
         setTextFilter(e.target.value)
     }
 
+    const handleMouseEnter = () => {
+        const searchIcon = document.getElementById('searchBarIcon');
+
+        searchIcon.style.opacity = ".8";
+
+    }
+
+    const handleMouseLeave = () => {
+        const searchIcon = document.getElementById('searchBarIcon');
+
+        searchIcon.style.opacity = ".4";
+
+    }
+
 
 
 
     return (
         <nav className="header-navbar">
             <ul className="header-navbar__list">
-                <li className="header-navbar__list-node text-navbar-link" onClick={startLogin}>Login</li>
-                {/* <li><NavLink to='/dashboard' onClick={handleStartLogin}>Login</NavLink></li> */}
-                <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li>
-                <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/charity">Charity</NavLink></li>
-                <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/tags">Tags</NavLink></li>
 
-                <input
-                    onChange={handleSearch}
-                    value={filters.text}
-                    placeholder="Search posts"
-                    type="text"
-                />
+                <div className="header-navbar__list-container">
+                    <li className="header-navbar__list-node text-navbar-link" onClick={startLogin}>Login</li>
+                    <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li>
+                </div>
 
+
+                <form onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave} className="search-bar">
+                    <input
+                        className="search-bar__input"
+                        onChange={handleSearch}
+                        value={filters.text}
+                        placeholder="Search posts"
+                        type="text"
+                    />
+                    <img id="searchBarIcon" className="search-bar__icon" src="./images/search.svg" alt="Search icon" />
+                </form>
 
             </ul>
         </nav>

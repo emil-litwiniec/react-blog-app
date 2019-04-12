@@ -36,9 +36,13 @@
 
 .text-post-preview-readmore {
     display: inline-block;
+    position: absolute;
     font-size: 1.4rem;
     text-decoration: underline;
     color: #9c9c9c;
-    margin-top: 3.5rem;
-    margin-left: 36rem;
+    top: 21rem;
+    left: 38rem;
+
+    // margin-top: 3.5rem;
+    // margin-left: 36rem;
 }

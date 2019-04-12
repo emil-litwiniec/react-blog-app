@@ -3,7 +3,7 @@
     flex-direction: column;
     position: sticky;
 
-    height: 15rem;
+    height: 16rem;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
     &__title {
@@ -18,13 +18,22 @@
 
 .header-navbar {
     // display: flex;
+    // justify-content: space-between;
 
 
     &__list {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         list-style: none;
-        padding-bottom: 2rem;
+        padding: 0 4rem 3rem 4rem;
+    }
+
+    &__list-container {
+        flex-basis: 30%;
+        display: flex;
+        justify-content: space-between;
+
     }
 
     &__list-node {
@@ -35,4 +44,66 @@
             color: #282828;
         }
     }
+}
+
+
+
+.search-bar {
+    position: relative;
+
+    &__input {
+        height: 4rem;
+        font-size: 1.8rem;
+        display: inline-block;
+        font-family: $font-primary;
+        font-weight: 400;
+        border: none;
+        outline: none;
+        color: #555;
+        padding: 3px;
+        padding-right: 60px;
+        width: 0px;
+        // position: absolute;
+        top: 0;
+        right: 0;
+        background: none;
+        z-index: 5;
+        transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+        cursor: pointer;
+
+        &:focus:hover {
+            // border-bottom: 1px solid #BBB;
+
+        }
+
+        &:focus {
+            width: 35rem;
+            z-index: 1;
+            // border-bottom: 1px solid #BBB;
+            cursor: text;
+        }
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        display: inline-block;
+        text-indent: -10000px;
+        border: none;
+        position: absolute;
+        top: 1.2rem;
+        right: 4rem;
+        z-index: -1;
+        cursor: pointer;
+        opacity: .4;
+        // cursor: pointer;
+        transition: opacity .4s ease;
+
+
+        &:hover {
+            opacity: 0.8;
+
+        }
+    }
+
 }

@@ -32,7 +32,11 @@ const PublicPostPreview = ({ id, title, subtitle, createdAt, likes, image }) => 
             <div className="post-preview__info">
                 <div className="post-preview__info-date">
                     <p className="text-post-preview-info">{date}</p>
-                    <p className="text-post-preview-info">Likes {likes}</p>
+
+                    <div className="post-preview-info__likes">
+                        <p className="text-post-preview-info"> {likes}</p>
+                        <img className="heart-icon" src="./images/heart.svg" alt="Heart icon" />
+                    </div>
 
                 </div>
                 <h2 className="text-post-preview-title">{title}</h2>
