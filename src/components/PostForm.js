@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from "moment";
 import uuid from "uuid/v1";
 
+
 import { storage } from "../firebase/firebase";
 
 
@@ -118,24 +119,28 @@ export default class PostForm extends Component {
                         />
                     </div>
 
-                    <div className="post-form__group">
-                        <label className="post-form__label--file" htmlFor="chooseImage">Choose main picture:</label>
+                    <div className="post-form__group post-form__group--file">
+                        <label className="post-form__label--file" htmlFor="chooseImage">Choose main picture
                         <input className="post-form__input--file" id="fileId" onChange={this.onFileChange} name="chooseImage" type="file" accept="image/png, image/jpeg" method="post" encType="multipart/form-data" />
+                            <img className="post-form__label--file-icon" src="../images/folder-open.svg" alt="" />
+                        </label>
                     </div>
 
                     <div className="post-form__group">
-                        <button className="post-form__submit-btn" type="submit" >Submit</button>
-                        <button className="post-form__abort-btn" onClick={this.props.onAbort}>Abort</button>
+                        {[
+                            null,
+                            <p className="chosen-image">Loading image...</p>,
+                            <img className="chosen-image chosen-image--ready" id="imageHolder" src="" alt="Image from firebase..." />
+                        ][this.state.loadingPhase]
+                        }
+                    </div>
+                    <div className="post-form__group--btn">
+                        <button className=" post-form__btn post-form__btn--submit" type="submit" >Submit</button>
+                        <button className="post-form__btn post-form__btn--abort" onClick={this.props.onAbort}>Abort</button>
                     </div>
                 </form>
 
                 {/* <button onClick={this.downloadImage}></button> */}
-                {[
-                    null,
-                    <p>Loading image...</p>,
-                    <img id="imageHolder" src="" alt="Image from firebase..." />
-                ][this.state.loadingPhase]
-                }
             </>
         )
     }

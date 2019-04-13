@@ -14,12 +14,15 @@ export class PostEditPage extends Component {
     }
     render() {
         return (
-            <div>
-                {console.log(this.props)}
-                <h2>Edit post</h2>
-                <button>Login</button>
-                <PostForm onSubmit={this.onSubmit} onAbort={this.onAbort} post={this.props.post} />
 
+
+            <div className="create-post">
+
+                <header className="create-post__header">
+                    <h2 className="create-post__title" >Edit post</h2>
+                    {/* <button className="button create-post__button">Login</button> */}
+                </header>
+                <PostForm onSubmit={this.onSubmit} onAbort={this.onAbort} post={this.props.post} />
             </div>
         )
     }
