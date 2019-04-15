@@ -14,7 +14,9 @@ const PostPreviewList = (props) => {
     return (
         <section className="post-preview-list">
             <SimpleBar>
+
                 {props.posts.map((post) => <PostPreview key={post.id} {...post} />)}
+
             </SimpleBar>
         </section>
     )

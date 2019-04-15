@@ -5,6 +5,7 @@ import PostForm from "./PostForm";
 import { startCreatePost } from "../actions/posts";
 
 
+
 export class PostCreatePage extends Component {
     onSubmit = post => {
         this.props.startCreatePost(post);
@@ -13,6 +14,7 @@ export class PostCreatePage extends Component {
     onAbort = () => {
         this.props.history.push('/dashboard');
     }
+
 
     render() {
         return (
@@ -35,6 +37,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(undefined, mapDispatchToProps)(PostCreatePage);
+
 
 
 
