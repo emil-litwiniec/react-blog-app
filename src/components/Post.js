@@ -15,32 +15,28 @@ import Likes from "./Likes";
 
 class Post extends Component {
     componentDidMount() {
-        // this.props.startSetPosts();
-        // this.downloadImage();
+        this.downloadImage();
     }
     downloadImage = () => {
-        // console.log(this.props.post);
-        // if (!(this.props.post.image === "")) {
-        //     storage.ref(`images/image_${this.props.post.image}`).getDownloadURL().then((url) => {
-        //         let img = document.getElementById('imageHolder');
-        //         img.src = url;
+        if (!(this.props.post.image === "")) {
+            storage.ref(`images/image_${this.props.post.image}`).getDownloadURL().then((url) => {
+                let img = document.getElementById('imageHolder');
+                img.src = url;
 
-        //     }).catch(e => console.log(e));
-        // }
+            }).catch(e => console.log(e));
+        }
     }
     render() {
         const createdAt = this.props.post.createdAt;
 
         const date = moment(createdAt * 1000).format("MMM D, H:mm");
-        console.log(this.props.post.text);
 
         const article = this.props.post.text;
         let articleParagraphs = article.split('\n');
 
 
-        console.log('is it undeined at firts: ', this.props.post)
+        console.log('this is the post: ', this.props.post)
 
-        // this.props.post && console.log('piesek śpiewa');
 
         return (
 
@@ -49,7 +45,6 @@ class Post extends Component {
 
 
                 <section className="post">
-                    <p>chicken</p>
 
                     <div className="post__header">
                         <img className="post__header--img" id="imageHolder" onLoad={this.downloadImage} src="" alt="Firebase image test ..." />
@@ -62,18 +57,28 @@ class Post extends Component {
 
                     </div>
 
+
+
+
                     <article className="post__article">
 
-                        {articleParagraphs.map((paragraph, index) => <p className="post__article-node" key={index}>{paragraph}</p>)}
+                        {articleParagraphs.map((paragraph, index) => <p className="post__article--node" key={index}>{paragraph}</p>)}
 
                     </article>
 
                     <div className="post__social">
 
-                        <p>{date}</p>
                         <Likes paramsId={this.props.post.id} />
 
+                        <div className="post__social-right">
+                            <p className="post__social--name">by Cat Tester</p>
+                            <p className="post__social--date">{date}</p>
+                        </div>
+
                     </div>
+
+
+
                 </section>
 
 

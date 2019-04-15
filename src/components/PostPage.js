@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 
 import { startSetPosts } from "../actions/posts";
@@ -13,26 +13,29 @@ import Post from "./Post";
 import CommentsList from "./CommentsList";
 
 const PostPage = (props) => {
-    useEffect(() => {
-        // props.startSetPosts();
-    });
+
     const paramsId = props.match.params.id;
-    console.log(paramsId);
-    console.log("props:: ", props)
 
     return (
-        <main className="main">
-            <PublicMainHeader />
 
-            {!props.post ? <p>Loading</p> :
-                <SimpleBar>
-                    <Post paramsId={paramsId} />
-                    {/* <CommentsList postId={paramsId} /> */}
+        <>
 
-                </SimpleBar>
-            }
+            <main className="main">
+                <PublicMainHeader />
 
-        </main>
+
+                <section className="post-container">
+                    {!props.post ? <p>Loading</p> :
+                        <SimpleBar>
+                            <Post paramsId={paramsId} />
+                            <CommentsList postId={paramsId} />
+
+                        </SimpleBar>
+                    }
+                </section>
+
+            </main>
+        </>
     )
 }
 

@@ -24,22 +24,21 @@ class Likes extends Component {
         this.setState({ isLiked: true });
     }
     handleUnlike = () => {
-        this.props.startSubstractLike(this.props.post.id, this.props.post.like);
+        this.props.startSubstractLike(this.props.post.id, this.props.post.likes);
         this.setState({ isLiked: false });
     }
     render() {
         return (
 
 
-            <div>
-                {console.log(this.props.post.likes)}
-                <p>{this.props.post.likes}</p>
+            <div className="likes">
                 {this.state.isLiked ?
-                    <button onClick={this.handleUnlike} >Unlike</button>
+                    <button className="likes__button likes__button--unlike" onClick={this.handleUnlike}><img src="/images/heart.svg" alt="Heart icon" /></button>
                     :
-                    <button onClick={this.handleLike} >I like it!</button>
+                    <button className="likes__button likes__button--like" onClick={this.handleLike} ><img src="/images/heart.svg" alt="Heart icon" /></button>
 
                 }
+                <p className="likes__amount">{this.props.post.likes}</p>
             </div>
         )
     }
@@ -52,7 +51,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     startAddLike: (id, currentLikes) => dispatch(startAddLike(id, currentLikes)),
-    startSubstractLike: (id) => dispatch(startSubstractLike(id))
+    startSubstractLike: (id, currentLikes) => dispatch(startSubstractLike(id, currentLikes))
 })
 
 
