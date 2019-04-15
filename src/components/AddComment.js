@@ -60,25 +60,31 @@ class AddComment extends Component {
 
     render() {
         return (
-            <div>
-                <img src="" alt="'Avatar'" />
-                <form onSubmit={this.onSubmit}>
+            <div className="add-comment">
+                <img className="add-comment__avatar" src="/images/cat-avatar.jpg" alt="Avatar" />
+                <form className="add-comment__form" onSubmit={this.onSubmit}>
                     <input
+                        className="add-comment__form--nick"
                         placeholder="Who dis?"
                         type="text"
                         onChange={this.onAuthorChange}
                         ref={this.textInput}
                     />
-                    <textarea
-                        placeholder="Leave your comment here..."
-                        name="comment"
-                        id=""
-                        cols="30"
-                        rows="10"
-                        onChange={this.onTextChange}
-                        ref={this.textarea}
-                    />
-                    <button type="submit">Comment</button>
+                    <div className="add-comment__form--right" >
+                        <textarea
+                            className="add-comment__form--comment"
+                            placeholder="Leave your comment here..."
+                            name="comment"
+                            id=""
+                            cols="30"
+                            rows="10"
+                            onChange={this.onTextChange}
+                            ref={this.textarea}
+                        />
+                        <button className="add-comment__form--button" type="submit">Comment</button>
+
+
+                    </div>
                 </form>
             </div>
         )

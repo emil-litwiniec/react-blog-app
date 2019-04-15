@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import moment from "moment";
 
 import { startAddCommentLike, startSubstractCommentLike } from '../actions/posts';
 
@@ -16,20 +17,36 @@ const Comment = ({ id, author, createdAt, text, likes, postId, comments, startAd
         setIsLiked(false);
         startSubstractCommentLike(postId, comments[commentIndex], commentIndex);
     }
-    return (
-        <div>
-            <img src="" alt="Avatar" />
-            <div>
-                <h4>{author}</h4>
-                <p>{createdAt}</p>
-                <p>{text}</p>
-                <p>{likes}</p>
+    const date = moment(createdAt * 1000).format("MMM D, H:mm");
 
-                {isLiked ?
-                    <button onClick={handleSubstractLike} >Unlike</button>
-                    :
-                    <button onClick={handleAddLike}>Like</button>
-                }
+    return (
+        <div className="comment">
+            <img className="comment__avatar" src="/images/cat-avatar.jpg" alt="Avatar" />
+            <div className="comment__content">
+
+                <div className="comment__content-info">
+
+                    <h4 className="comment-info__author">{author}</h4>
+                    <p className="comment-info__date">{date}</p>
+
+                    <div className="comment-info__likes">
+
+                        <p className="comment-info__likes-amount">{likes}</p>
+                        {isLiked ?
+                            <button onClick={handleSubstractLike} className="comment-info__button comment-info__button--unlike">
+                                <img src="/images/heart.svg" alt="Heart icon" />
+                            </button>
+                            :
+                            <button onClick={handleAddLike} className="comment-info__button comment-info__button--like" >
+                                <img src="/images/heart.svg" alt="Heart icon" />
+                            </button>
+                        }
+
+                    </div>
+
+                </div>
+                <p className="comment__text">{text}</p>
+
             </div>
         </div>
     )
