@@ -23,12 +23,16 @@ export default class PostForm extends Component {
         };
     }
 
+    componentDidMount() {
+        this.state.image && this.downloadImage();
+    }
+
     onSubmit = (e) => {
         e.preventDefault();
         console.log(e);
-        if (!this.state.title || !this.state.subtitle || !this.state.text) {
+        if (!this.state.title || !this.state.subtitle || !this.state.text || !this.state.image) {
             this.setState(() => ({
-                error: "Please provide title, subtitle and text."
+                error: "Please provide title, subtitle, text and an image."
             }));
         } else {
             this.setState(() => ({ error: "" }));

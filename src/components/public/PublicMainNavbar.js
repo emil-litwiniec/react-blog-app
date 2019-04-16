@@ -33,7 +33,7 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated,
     const URL = document.URL;
     const regex = /post/gm;
     const isPostPage = URL.search(regex) === -1 ? false : true;
-    console.log(isPostPage);
+
 
 
 
@@ -43,21 +43,21 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated,
 
                 <div className="header-navbar__list-container">
                     <li className="header-navbar__list-node text-navbar-link" onClick={startLogin}>Login</li>
-                    <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li>
                 </div>
 
-
-                <form onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave} className="search-bar">
-                    <input
-                        className="search-bar__input"
-                        onChange={handleSearch}
-                        value={filters.text}
-                        placeholder="Search posts"
-                        type="text"
-                    />
-                    <img id="searchBarIcon" className="search-bar__icon" src="./images/search.svg" alt="Search icon" />
-                </form>
+                {!isPostPage &&
+                    <form onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave} className="search-bar">
+                        <input
+                            className="search-bar__input"
+                            onChange={handleSearch}
+                            value={filters.text}
+                            placeholder="Search posts"
+                            type="text"
+                        />
+                        <img id="searchBarIcon" className="search-bar__icon" src="./images/search.svg" alt="Search icon" />
+                    </form>
+                }
 
             </ul>
         </nav>

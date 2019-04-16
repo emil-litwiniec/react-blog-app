@@ -7,10 +7,10 @@ export class PostEditPage extends Component {
     onSubmit = (post) => {
         console.log('hello from onSubmit')
         this.props.startEditPost(this.props.post.id, post);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
     onAbort = () => {
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
     render() {
         return (

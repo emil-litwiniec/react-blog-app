@@ -72,7 +72,9 @@
 
 
 .search-bar {
-    position: relative;
+    position: absolute;
+    right: 0;
+    bottom: .8rem;
 
     &__input {
         height: 4rem;
