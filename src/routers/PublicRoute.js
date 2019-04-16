@@ -16,7 +16,9 @@ export const PublicRoute = ({
 
                 <>
                     <Component {...props} />
-                    <SideMenu />
+
+                    {props.match.path !== "/post/:id" ?
+                        <SideMenu /> : false}
                     <div className="side-left"></div>
                     <div className="side-right"></div>
 

@@ -81,7 +81,7 @@ class AddComment extends Component {
                             onChange={this.onTextChange}
                             ref={this.textarea}
                         />
-                        <button className="add-comment__form--button" type="submit">Comment</button>
+                        <button className="add-comment__form--button" type="submit">Submit</button>
 
 
                     </div>

@@ -8,7 +8,7 @@ import { startLogout } from "../actions/auth";
 
 
 
-const MainNavbar = ({ setTextFilter, filters, startLogout }) => {
+const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
 
     const handleSearch = (e) => {
         setTextFilter(e.target.value)
@@ -31,8 +31,14 @@ const MainNavbar = ({ setTextFilter, filters, startLogout }) => {
 
     }
 
+    const regex = /post/gm;
+
+    const URL = document.URL;
+
+    let isNotPost = URL.search(regex);
 
 
+    console.log('isNotPost');
 
     return (
         <nav className="header-navbar">

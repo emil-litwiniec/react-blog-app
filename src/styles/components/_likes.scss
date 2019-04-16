@@ -1,0 +1,59 @@
+.likes {
+    position: relative;
+    width: 1rem;
+
+
+    &__button {
+        position: absolute;
+        top: .4rem;
+        right: -3.4rem;
+        transition: all .2s ease-in;
+
+
+        &--like {
+            img {
+                opacity: .2;
+                height: 1.6rem;
+                width: 1.6rem;
+
+
+                &:hover {
+                    opacity: .7;
+                    transform: scale(1.1);
+                }
+
+                &:active {
+                    opacity: .7;
+                    transform: scale(1.0);
+                }
+            }
+        }
+
+
+        &--unlike {
+            img {
+                opacity: .8;
+                height: 1.6rem;
+                width: 1.6rem;
+                transform: scale(1.3);
+
+
+                &:hover {
+                    opacity: 1;
+                    transform: scale(1.3);
+                }
+
+                &:active {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+
+    }
+
+    &__amount {
+        font-size: 1.8rem;
+        color: #a3a3a3;
+    }
+}

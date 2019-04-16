@@ -217,6 +217,11 @@ button:disabled {
     cursor: default;
 }
 
+::selection {
+    color: $off-white;
+    background-color: #5a5a5a;
+}
+
 // .is-active {
 //     font-weight: bold;
 // }

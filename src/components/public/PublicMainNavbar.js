@@ -28,7 +28,12 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated,
         searchIcon.style.opacity = ".4";
 
     }
+    console.log(document.URL)
 
+    const URL = document.URL;
+    const regex = /post/gm;
+    const isPostPage = URL.search(regex) === -1 ? false : true;
+    console.log(isPostPage);
 
 
 
