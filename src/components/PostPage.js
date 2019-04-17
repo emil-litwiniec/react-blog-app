@@ -29,7 +29,7 @@ const PostPage = (props) => {
                         <SimpleBar>
                             <Post paramsId={paramsId} />
                             <CommentsList postId={paramsId} />
-
+                            <div className="safe-space"></div>
                         </SimpleBar>
                     }
                 </section>
