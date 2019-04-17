@@ -3,6 +3,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
+    transition: all 4s ease-in-out;
 
     &__list {
         list-style: none;
@@ -10,6 +11,8 @@
     }
 
     &__list-node {
+        transition: all .1s ease-in-out;
+
         &:hover {
             cursor: pointer;
             color: #525252;

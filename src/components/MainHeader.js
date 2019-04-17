@@ -9,7 +9,7 @@ const MainHeader = () => {
 
         <header className="private-header">
             <div className='private-header__title'>
-                <Link to="/" > <h1 className="private-text-header" >Admin dashboard</h1></Link>
+                <Link to="/dashboard" > <h1 className="private-text-header" >Admin dashboard</h1></Link>
             </div>
             <MainNavbar />
         </header>

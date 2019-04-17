@@ -47,7 +47,7 @@ class Post extends Component {
                 <section className="post">
 
                     <div className="post__header">
-                        <img className="post__header--img" id="imageHolder" onLoad={this.downloadImage} src="" alt="Firebase image test ..." />
+                        <img className="post__header--img" id="imageHolder" onLoad={this.downloadImage} src="" alt="Post image" />
 
                         <div className="post__header--titles">
                             <h2 className="post__header--title">{this.props.post.title}</h2>
