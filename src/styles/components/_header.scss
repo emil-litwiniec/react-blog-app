@@ -3,7 +3,7 @@
     flex-direction: column;
     position: sticky;
 
-    height: 14rem;
+    height: 11.4rem;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
     &__title {
@@ -11,7 +11,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        padding-top: 1rem;
+        padding-top: .3rem;
     }
 }
 
@@ -20,7 +20,7 @@
     flex-direction: column;
     position: sticky;
 
-    height: 14.5rem;
+    height: 12.5rem;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
     &__title {
@@ -28,7 +28,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        padding-top: 2rem;
+        padding-top: 1rem;
         padding-bottom: 1.4rem;
     }
 }
@@ -77,7 +77,7 @@
     bottom: .8rem;
 
     &__input {
-        height: 4rem;
+        // height: 3em;
         font-size: 1.8rem;
         display: inline-block;
         font-family: $font-primary;
@@ -114,7 +114,7 @@
         text-indent: -10000px;
         border: none;
         position: absolute;
-        top: 1.2rem;
+        top: .6rem;
         right: 4rem;
         z-index: -1;
         cursor: pointer;

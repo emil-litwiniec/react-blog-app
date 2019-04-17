@@ -5,12 +5,27 @@
 
     border-bottom: 1px solid #e1e1e1;
 
+    @media only screen and (max-width: 650px) {
+        flex-direction: column;
+        height: 55rem;
+        padding: 0 11rem;
+        border: none;
+    }
+
     &__image {
         // flex-basis: 50%;
         max-height: 27.5rem;
-        width: 50rem; //
+        width: 50%; //
         // min-width: 100%;
         object-fit: cover;
+
+        @media only screen and (max-width: 650px) {
+            width: 100%;
+            border-left: 1px solid #c4c4c4;
+            border-right: 1px solid #c4c4c4;
+        }
+
+
     }
 
     &__info {
@@ -18,6 +33,12 @@
         flex-basis: 50%;
         flex: 1;
         position: relative;
+
+        @media only screen and (max-width: 650px) {
+            border-bottom: 1px solid #c4c4c4;
+            border-left: 1px solid #c4c4c4;
+            border-right: 1px solid #c4c4c4;
+        }
 
     }
 

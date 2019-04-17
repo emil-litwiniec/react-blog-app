@@ -13,7 +13,7 @@
 .add-comment {
     margin-top: 2rem;
     display: flex;
-    height: 13rem;
+    height: 16.8rem;
     justify-content: space-between;
     align-items: flex-start;
 
@@ -34,9 +34,12 @@
             display: flex;
             flex-direction: column;
             flex-basis: 70%;
+            font-family: $font-secondary;
         }
 
         &--nick {
+            font-family: $font-secondary;
+            font-size: 1.9rem;
             margin-left: 1rem;
             margin-bottom: .7rem;
             height: 4rem;
@@ -47,6 +50,8 @@
         }
 
         &--comment {
+            font-family: $font-secondary;
+            font-size: 1.7rem;
             border-style: none;
             background-color: inherit;
             height: 8rem;
@@ -71,7 +76,8 @@
 
         &--button {
             width: 10rem;
-            padding: .5rem;
+            font-size: 1.7rem;
+            padding: 1.2rem;
             align-self: flex-end;
             color: #c4c4c4;
 
@@ -87,6 +93,7 @@
     display: flex;
     min-height: 13rem;
     align-items: flex-start;
+
 
 
     &__avatar {
@@ -114,7 +121,7 @@
     &-info {
 
         &__author {
-            font-size: 2rem;
+            font-size: 2.3rem;
             color: #5a5a5a;
         }
 
@@ -123,7 +130,7 @@
             top: 3px;
             left: 64rem;
             font-family: $font-primary;
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             color: #5a5a5a;
         }
 
@@ -133,6 +140,7 @@
         }
 
         &__likes-amount {
+            font-size: 1.7rem;
             position: absolute;
             top: 0;
             right: 7rem;
@@ -191,7 +199,7 @@
     &__text {
         margin: 1.5rem 6rem 0 0;
         font-family: $font-secondary;
-        font-size: 1.6rem;
+        font-size: 2rem;
         color: #a7a6a6;
         text-align: justify;
         line-height: 1.7;
