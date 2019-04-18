@@ -1,6 +1,11 @@
 .text-header {
     font-size: 4.9rem;
     font-weight: 400;
+
+    @media only screen and (max-width: 450px) {
+
+        font-size: 4.4rem;
+    }
 }
 
 .text-navbar-link {
@@ -23,7 +28,7 @@
 }
 
 .text-post-preview-info {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     letter-spacing: .2rem;
     color: #707070;
 }
@@ -42,6 +47,13 @@
     color: #9c9c9c;
     top: 21rem;
     left: 38rem;
+
+    @media only screen and (max-width: 650px) {
+        font-size: 2rem;
+        top: 26rem;
+        left: auto;
+        right: 8rem;
+    }
 
     // margin-top: 3.5rem;
     // margin-left: 36rem;

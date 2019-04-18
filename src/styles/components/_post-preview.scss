@@ -7,8 +7,14 @@
 
     @media only screen and (max-width: 650px) {
         flex-direction: column;
-        height: 55rem;
+        height: 59rem;
         padding: 0 11rem;
+        border: none;
+    }
+
+    @media only screen and (max-width: 480px) {
+
+        padding: 0;
         border: none;
     }
 

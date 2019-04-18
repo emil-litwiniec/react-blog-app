@@ -41,19 +41,19 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
 
                     <div className="private-post-preview-info-wrapper">
                         <p className="text-post-preview-info private-text-post-preview__info">{date}</p>
-                        <span className="text-post-preview-info private-text-post-preview__info"> | </span>
+                        <span className="text-post-preview-info private-text-post-preview__info">  </span>
 
                         <div className="private-post-preview-info__likes">
                             <p className="text-post-preview-info private-text-post-preview__info"> {likes}</p>
                             <img className="private-heart-icon" src="./images/heart.svg" alt="Heart icon" />
                         </div>
-                        <span className="text-post-preview-info private-text-post-preview__info"> | </span>
+                        <span className="text-post-preview-info private-text-post-preview__info">  </span>
                     </div>
 
                     <div className="private-post-preview-links-wrapper"></div>
-                    <Link className="private-post-preview__text-link" to={`/post/${id}`}>read full article</Link>
-                    <Link className="private-post-preview__text-link" to={`/edit/${id}`}>edit</Link>
-                    <a className="private-post-preview__text-link" onClick={handleRemove}>remove</a>
+                    <Link className="private-post-preview__text-link" to={`/post/${id}`}><img className="read-icon icon" src="/images/eye.svg" alt="read full article" /></Link>
+                    <Link className="private-post-preview__text-link" to={`/edit/${id}`}><img className="edit-icon icon" src="/images/pencil.svg" alt="edit" /></Link>
+                    <a className="private-post-preview__text-link" onClick={handleRemove}><img className="remove-icon icon" src="/images/cross.svg" alt="remove" /></a>
 
                 </div>
                 <h2 className="private-text-post-preview__title">{title}</h2>

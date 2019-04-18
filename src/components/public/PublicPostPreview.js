@@ -41,7 +41,8 @@ const PublicPostPreview = ({ id, title, subtitle, createdAt, likes, image }) => 
                 </div>
                 <h2 className="text-post-preview-title">{title}</h2>
                 <p className="text-post-preview-subtitle">{subtitle}</p>
-                <Link className="text-post-preview-readmore" to={`/post/${id}`}>read more...</Link>
+                <Link className="text-post-preview-readmore" to={`/post/${id}`}>...read more</Link>
+
             </div>
 
         </div>
