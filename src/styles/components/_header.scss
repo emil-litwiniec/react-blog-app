@@ -65,6 +65,109 @@
         justify-content: space-between;
 
 
+        // @media only screen and (max-width: 500px) {
+        //     flex-basis: 30%;
+        //     margin-left: 25%;
+        // }
+    }
+
+    &__list-node {
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+
+            color: #282828;
+        }
+    }
+}
+
+
+
+.search-bar {
+    position: absolute;
+    right: 0;
+    bottom: .8rem;
+
+    @media only screen and (max-width: 500px) {
+        bottom: 1.4rem;
+    }
+
+    &__input {
+        // height: 3em;
+        font-size: 1.8rem;
+        display: inline-block;
+        font-family: $font-primary;
+        font-weight: 400;
+        border: none;
+        outline: none;
+        color: #555;
+        padding: 3px;
+        padding-right: 60px;
+        width: 0px;
+        // position: absolute;
+        top: 0;
+        right: 0;
+        background: none;
+        z-index: 5;
+        transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+        cursor: pointer;
+
+
+
+        &:focus {
+            width: 40rem;
+            z-index: 1;
+            // border-bottom: 1px solid #BBB;
+            cursor: text;
+            caret-color: #cdcdcd;
+        }
+    }
+
+    &__icon {
+        height: 1.8rem;
+        width: 1.8rem;
+        display: inline-block;
+        text-indent: -10000px;
+        border: none;
+        position: absolute;
+        top: .6rem;
+        right: 4rem;
+        z-index: -1;
+        cursor: pointer;
+        opacity: .4;
+        // cursor: pointer;
+        transition: opacity .4s ease;
+
+
+        &:hover {
+            opacity: 0.8;
+
+        }
+    }
+
+}
+
+
+.private-header-navbar {
+    // display: flex;
+    // justify-content: space-between;
+
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0 4rem 3rem 4rem;
+    }
+
+    &__list-container {
+        flex-basis: 30%;
+        display: flex;
+        justify-content: space-between;
+
+
         @media only screen and (max-width: 500px) {
             flex-basis: 49%;
             margin-left: 25%;
@@ -84,7 +187,7 @@
 
 
 
-.search-bar {
+.private-search-bar {
     position: absolute;
     right: 0;
     bottom: .8rem;

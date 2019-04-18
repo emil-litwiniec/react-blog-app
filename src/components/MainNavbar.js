@@ -31,23 +31,16 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
 
     }
 
-    const regex = /post/gm;
 
-    const URL = document.URL;
-
-    let isNotPost = URL.search(regex);
-
-
-    console.log('isNotPost');
 
     return (
-        <nav className="header-navbar">
-            <ul className="header-navbar__list">
+        <nav className="private-header-navbar">
+            <ul className="private-header-navbar__list">
 
-                <div className="header-navbar__list-container">
-                    <li className="header-navbar__list-node text-navbar-link" onClick={startLogout}>Logout</li>
+                <div className="private-header-navbar__list-container">
+                    <li className="private-header-navbar__list-node text-navbar-link" onClick={startLogout}>Logout</li>
 
-                    <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/Create">Create</NavLink></li>
+                    <li className="private-header-navbar__list-node"><NavLink className="private-header-navbar__list-node text-navbar-link" to="/Create">Create</NavLink></li>
                     {/* <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li> */}
                 </div>
 
@@ -55,13 +48,13 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
                 <form onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave} className="search-bar">
                     <input
-                        className="search-bar__input"
+                        className="private-search-bar__input"
                         onChange={handleSearch}
                         value={filters.text}
                         placeholder="Search posts"
                         type="text"
                     />
-                    <img id="searchBarIcon" className="search-bar__icon" src="./images/search.svg" alt="Search icon" />
+                    <img id="searchBarIcon" className="private-search-bar__icon" src="./images/search.svg" alt="Search icon" />
                 </form>
 
             </ul>
