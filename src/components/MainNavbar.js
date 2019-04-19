@@ -31,6 +31,9 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
 
     }
 
+    const URL = document.URL;
+    const regex = /post/gm;
+    const isPostPage = URL.search(regex) === -1 ? false : true;
 
 
     return (
@@ -44,18 +47,19 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
                     {/* <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li> */}
                 </div>
 
-
-                <form onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave} className="search-bar">
-                    <input
-                        className="private-search-bar__input"
-                        onChange={handleSearch}
-                        value={filters.text}
-                        placeholder="Search posts"
-                        type="text"
-                    />
-                    <img id="searchBarIcon" className="private-search-bar__icon" src="./images/search.svg" alt="Search icon" />
-                </form>
+                {!isPostPage &&
+                    <form onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave} className="search-bar">
+                        <input
+                            className="private-search-bar__input"
+                            onChange={handleSearch}
+                            value={filters.text}
+                            placeholder="Search posts"
+                            type="text"
+                        />
+                        <img id="searchBarIcon" className="private-search-bar__icon" src="./images/search.svg" alt="Search icon" />
+                    </form>
+                }
 
             </ul>
         </nav>

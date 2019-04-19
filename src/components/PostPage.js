@@ -9,10 +9,11 @@ import 'simplebar/dist/simplebar.min.css';
 
 
 import PublicMainHeader from "./public/PublicMainHeader";
+import MainHeader from "./MainHeader";
 import Post from "./Post";
 import CommentsList from "./CommentsList";
 
-const PostPage = (props) => {
+const PostPage = ({ isAuthenticated, ...props }) => {
 
     const paramsId = props.match.params.id;
 
@@ -21,8 +22,10 @@ const PostPage = (props) => {
         <>
 
             <main className="main">
-                <PublicMainHeader />
-
+                {isAuthenticated ?
+                    <MainHeader /> :
+                    <PublicMainHeader />
+                }
 
                 <section className="post-container">
                     {!props.post ? <p>Loading</p> :
@@ -41,7 +44,9 @@ const PostPage = (props) => {
 const mapStateToProps = (state, props) => {
 
     return {
-        post: state.posts.find((item) => item.id === props.match.params.id)
+        post: state.posts.find((item) => item.id === props.match.params.id),
+        isAuthenticated: !!state.auth.uid
+
     };
 };
 
