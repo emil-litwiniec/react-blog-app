@@ -1,6 +1,11 @@
 .create-post {
     display: flex;
     flex-direction: column;
+    margin: 0 2rem;
+
+    height: 100vh;
+
+
 
     @media only screen and (max-width: 900px) {
         padding: 0 5rem;
@@ -9,11 +14,11 @@
     &__header {
         display: flex;
         justify-content: space-between;
-        margin-top: 4rem;
+        margin-top: 2rem;
 
 
 
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1400px) {
             margin-top: 0;
         }
     }
@@ -24,6 +29,11 @@
         margin-bottom: 2rem;
         align-self: flex-end;
         color: #5a5a5a;
+
+        @media only screen and (max-width: 1400px) {
+            margin-top: 1.3rem;
+            margin-bottom: 0;
+        }
     }
 
     &__button {
@@ -54,9 +64,10 @@
     // align-content: space-between;
 
     &__group {
-        margin-top: 3rem;
+        margin-top: 1.5rem;
         display: flex;
         flex-direction: column;
+        position: relative;
 
         @media only screen and (max-width: 900px) {
             margin-top: 1rem;
@@ -64,7 +75,8 @@
 
 
         &--btn {
-            margin-top: 10rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
             display: flex;
             justify-content: flex-end;
 
@@ -88,6 +100,7 @@
     }
 
     &__input {
+        font-family: $font-secondary;
         border: solid 2px #d6d6d6;
         background-color: #eeeded;
         border-radius: 4px;
@@ -108,9 +121,10 @@
         }
 
 
-        &:active {}
+
 
         &:focus {
+            outline: none;
             border: solid 2px #e6e6e6;
             background-color: #f5f4f4;
         }
@@ -143,6 +157,7 @@
 
         &:hover {
             color: darken($color: #5a5a5a, $amount: 30%);
+            cursor: pointer;
         }
 
         @media only screen and (max-width: 900px) {
@@ -157,8 +172,8 @@
             opacity: .6;
             top: 1px;
             margin-left: 1rem;
-            height: 3rem;
-            width: 3rem;
+            height: 2.5rem;
+            width: 2.5rem;
         }
     }
 
@@ -221,6 +236,10 @@
     position: absolute;
     border-radius: 4px;
     color: #5a5a5a;
+
+
+    top: -2.7rem;
+    left: 30rem;
 
     &--ready {
         border: solid 2px rgba(0, 0, 0, .05);

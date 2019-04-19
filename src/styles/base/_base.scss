@@ -18,7 +18,7 @@ button {
     }
 
     &:focus {
-        outline: none;
+        // outline: none;
     }
 }
 
@@ -94,7 +94,7 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    outline: 0;
+    // outline: 0;
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
@@ -198,6 +198,10 @@ select {
 html {
     font-size: 58.5%;
 
+
+    @media only screen and (max-width: 1400px) {
+        font-size: 50%;
+    }
 
     @media only screen and (max-width: $bp-largest) {
         font-size: 45%;
