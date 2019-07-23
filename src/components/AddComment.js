@@ -3,7 +3,6 @@ import uuid from "uuid/v1";
 import moment from "moment";
 
 
-
 class AddComment extends Component {
 
     constructor(props) {
@@ -31,8 +30,6 @@ class AddComment extends Component {
             likes: this.state.likes
         })
 
-
-        // console.log(this.textInputs)
         this.setState({
             id: uuid(),
             author: '',
@@ -41,8 +38,6 @@ class AddComment extends Component {
         })
         this.textInput.current.value = '';
         this.textarea.current.value = '';
-
-
     }
 
     onAuthorChange = (e) => {
@@ -65,7 +60,7 @@ class AddComment extends Component {
                 <form className="add-comment__form" onSubmit={this.onSubmit}>
                     <input
                         className="add-comment__form--nick"
-                        placeholder="Who dis?"
+                        placeholder="What's your name?"
                         type="text"
                         onChange={this.onAuthorChange}
                         ref={this.textInput}

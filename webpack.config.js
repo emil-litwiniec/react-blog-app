@@ -1,4 +1,3 @@
-// entry -> output
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -80,8 +79,3 @@ module.exports = env => {
     };
 };
 
-// FIREBASE_AUTH_DOMAIN=expensify-test-41fa7.firebaseapp.com
-// FIREBASE_DATABASE_URL=https://expensify-test-41fa7.firebaseio.com
-// FIREBASE_PROJECT_ID=expensify-test-41fa7
-// FIREBASE_STORAGE_BUCKET=expensify-test-41fa7.appspot.com
-// FIREBASE_MESSAGING_SENDER_ID=504939858756

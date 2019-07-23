@@ -7,15 +7,6 @@ import { giveArrayOfMonths } from "../utilities/utilites";
 
 
 class SideMenu extends Component {
-
-    // handleSetDateFilter = () => {
-    //     const monthButton = document.getElementById(`${date[0]}-${date[1]}`)
-    //     const month = monthButton.dataset.month;
-    //     const year = monthButton.dataset.year;
-    //     this.props.setDateFilter({ month, year })
-    // }
-
-
     render() {
         const arrayOfMonths = giveArrayOfMonths(this.props.posts);
 

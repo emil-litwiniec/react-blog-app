@@ -29,7 +29,6 @@ export default class PostForm extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
         if (!this.state.title || !this.state.subtitle || !this.state.text || !this.state.image) {
             this.setState(() => ({
                 error: "Please provide title, subtitle, text and an image."
@@ -144,7 +143,6 @@ export default class PostForm extends Component {
                     </div>
                 </form>
 
-                {/* <button onClick={this.downloadImage}></button> */}
             </>
         )
     }

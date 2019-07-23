@@ -3,16 +3,10 @@ import { connect } from "react-redux";
 
 import { startAddLike, startSubstractLike } from "../actions/posts";
 
-
-
-
 class Likes extends Component {
 
     constructor(props) {
         super(props);
-        // this.likes = this.props.props.likes;
-        // this.id = this.props.props.id
-        // this.likes = this.props.props.likes;
         this.state = {
             isLiked: false
         }
@@ -30,13 +24,11 @@ class Likes extends Component {
     render() {
         return (
 
-
             <div className="likes">
                 {this.state.isLiked ?
                     <button className="likes__button likes__button--unlike" onClick={this.handleUnlike}><img src="/images/heart.svg" alt="Heart icon" /></button>
                     :
                     <button className="likes__button likes__button--like" onClick={this.handleLike} ><img src="/images/heart.svg" alt="Heart icon" /></button>
-
                 }
                 <p className="likes__amount">{this.props.post.likes}</p>
             </div>

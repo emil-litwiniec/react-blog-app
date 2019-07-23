@@ -44,7 +44,6 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
                     <li className="private-header-navbar__list-node text-navbar-link" onClick={startLogout}>Logout</li>
 
                     <li className="private-header-navbar__list-node"><NavLink className="private-header-navbar__list-node text-navbar-link" to="/Create">Create</NavLink></li>
-                    {/* <li className="header-navbar__list-node"><NavLink className="header-navbar__list-node text-navbar-link" to="/about">About</NavLink></li> */}
                 </div>
 
                 {!isPostPage &&

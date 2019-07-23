@@ -6,8 +6,6 @@ export const giveArrayOfMonths = (posts) => {
     posts.forEach(post => {
         const date = post.createdAt * 1000;
         const momentDate = moment(date).format('MMMM,YYYY');
-        // const year = moment(date).format('YYYY')
-        // const arr = [month, year];
 
         if (!auxiliaryArray.includes(momentDate)) {
 
@@ -73,5 +71,3 @@ export const dates = {
     },
 
 }
-
-console.log(dates[2019]["November"]);

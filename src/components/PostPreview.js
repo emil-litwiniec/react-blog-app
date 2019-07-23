@@ -7,8 +7,6 @@ import moment from "moment";
 
 
 const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemovePost }) => {
-    // console.log(props);
-
     const handleRemove = () => {
         startRemovePost(id);
     }
@@ -51,9 +49,9 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
                     </div>
 
                     <div className="private-post-preview-links-wrapper"></div>
-                    <Link className="private-post-preview__text-link" to={`/post/${id}`}><img className="read-icon icon" src="/images/eye.svg" alt="read full article" /></Link>
-                    <Link className="private-post-preview__text-link" to={`/edit/${id}`}><img className="edit-icon icon" src="/images/pencil.svg" alt="edit" /></Link>
-                    <a className="private-post-preview__text-link" onClick={handleRemove}><img className="remove-icon icon" src="/images/cross.svg" alt="remove" /></a>
+                    <Link className="private-post-preview__text-link" to={`/post/${id}`}>View</Link>
+                    <Link className="private-post-preview__text-link" to={`/edit/${id}`}>Edit</Link>
+                    <a className="private-post-preview__text-link" onClick={handleRemove}>Delete</a>
 
                 </div>
                 <h2 className="private-text-post-preview__title">{title}</h2>

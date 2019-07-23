@@ -2,10 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 2rem;
-
     height: 100vh;
-
-
 
     @media only screen and (max-width: 900px) {
         padding: 0 5rem;
@@ -15,8 +12,6 @@
         display: flex;
         justify-content: space-between;
         margin-top: 2rem;
-
-
 
         @media only screen and (max-width: 1400px) {
             margin-top: 0;
@@ -61,7 +56,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // align-content: space-between;
 
     &__group {
         margin-top: 1.5rem;
@@ -236,8 +230,6 @@
     position: absolute;
     border-radius: 4px;
     color: #5a5a5a;
-
-
     top: -2.7rem;
     left: 30rem;
 
@@ -245,17 +237,3 @@
         border: solid 2px rgba(0, 0, 0, .05);
     }
 }
-
-
-
-
-
-// [type="file"]:focus+label,
-// [type="file"]+label:hover {
-//     background-color: #f15d22;
-// }
-
-// [type="file"]:focus+label {
-//     outline: 1px dotted #000;
-//     outline: -webkit-focus-ring-color auto 5px;
-// }

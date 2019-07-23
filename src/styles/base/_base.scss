@@ -17,9 +17,6 @@ button {
         outline: none;
     }
 
-    &:focus {
-        // outline: none;
-    }
 }
 
 html,
@@ -196,15 +193,15 @@ select {
 
 
 html {
-    font-size: 58.5%;
+    font-size: 60%;
 
 
     @media only screen and (max-width: 1400px) {
-        font-size: 50%;
+        font-size: 55%;
     }
 
     @media only screen and (max-width: $bp-largest) {
-        font-size: 45%;
+        font-size: 49%;
     }
 }
 
@@ -212,10 +209,8 @@ body {
     color: $dark-grey;
     background-color: $off-white;
     font-family: $font-primary;
-    // font-size: $m-size;
     line-height: 1.6;
     overflow: hidden;
-
 }
 
 button {
@@ -230,7 +225,3 @@ button:disabled {
     color: $off-white;
     background-color: #5a5a5a;
 }
-
-// .is-active {
-//     font-weight: bold;
-// }

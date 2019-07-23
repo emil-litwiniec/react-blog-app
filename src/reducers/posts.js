@@ -1,8 +1,3 @@
-// import posts from "../tests/fixtures/posts";
-
-// console.log(typeof posts);
-
-
 export default (state = [], action) => {
     switch (action.type) {
         case "CREATE_POST":
@@ -19,15 +14,10 @@ export default (state = [], action) => {
                 }
             })
         case "REMOVE_POST":
-            console.log(action.id);
             return state.filter(({ id }) => id !== action.id);
         case "ADD_COMMENT":
-            // console.log("ADD COMMENT triggered")
             return state.map((post) => {
-                console.log("reducers POST ID:", post.id)
-                console.log("reducers ACTION ID:", action.id)
                 if (post.id === action.id) {
-                    console.log('Should work....')
                     return {
                         ...post,
                         ...action.comment
@@ -39,7 +29,6 @@ export default (state = [], action) => {
         case "ADD_LIKE":
             return state.map((post) => {
                 if (post.id === action.id) {
-                    // const addLike = post.likes + 1;
                     return {
                         ...post,
                         likes: post.likes + 1
@@ -51,7 +40,6 @@ export default (state = [], action) => {
         case "SUBSTRACT_LIKE":
             return state.map((post) => {
                 if (post.id === action.id && post.likes > 0) {
-                    // const addLike = post.likes + 1;
                     return {
                         ...post,
                         likes: post.likes - 1
@@ -83,7 +71,6 @@ export default (state = [], action) => {
                 }
             })
         case "SUBSTRACT_COMMENT_LIKE":
-            // let { commentID, id } = action;
             return state.map(post => {
                 if (post.id === action.id) {
                     return {

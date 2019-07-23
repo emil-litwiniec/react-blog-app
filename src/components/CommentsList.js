@@ -4,16 +4,10 @@ import { connect } from "react-redux";
 import { startAddComment } from '../actions/posts';
 import Comment from "./Comment";
 import AddComment from "./AddComment";
-// import comments from "../tests/fixtures/comments";
-
-
 
 class CommentsList extends Component {
 
     onSubmit = (comment) => {
-        console.log("comment: ", comment);
-
-
         if (!this.props.post.comments) {
             this.props.startAddComment(this.props.post.id, { comments: [comment] })
         } else {

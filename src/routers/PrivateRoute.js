@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 
 import { Route, Redirect } from "react-router-dom";
 
-import SideMenu from '../components/SideMenu';
-
-
 export const PrivateRoute = ({
     isAuthenticated,
     component: Component,

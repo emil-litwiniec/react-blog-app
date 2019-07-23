@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
-
 
 import { startLogin } from "../../actions/auth";
 
@@ -9,7 +7,7 @@ import { setTextFilter } from "../../actions/filters";
 
 
 
-const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated, history }) => {
+const PublicMainNavbar = ({ setTextFilter, filters, startLogin }) => {
 
     const handleSearch = (e) => {
         setTextFilter(e.target.value)
@@ -28,8 +26,6 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin, isAuthenticated,
         searchIcon.style.opacity = ".4";
 
     }
-    console.log(document.URL)
-
     const URL = document.URL;
     const regex = /post/gm;
     const isPostPage = URL.search(regex) === -1 ? false : true;

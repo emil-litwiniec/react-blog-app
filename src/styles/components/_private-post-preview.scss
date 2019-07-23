@@ -11,10 +11,8 @@
     }
 
     &__image {
-        // flex-basis: 50%;
         max-height: 27.5rem;
         width: 20rem; //
-        // min-width: 100%;
         object-fit: cover;
 
         @media only screen and (max-width: 500px) {
@@ -53,10 +51,6 @@
     flex-basis: 41%;
 }
 
-.private-text-post-preview__info {
-    // margin-right: 1rem;
-}
-
 .private-post-preview__info-date {
     display: flex;
     justify-content: space-between;
@@ -71,11 +65,7 @@
 }
 
 .private-heart-icon {
-
-
-    // position: absolute;
     margin-left: .6rem;
-    // top: 1rem;
     top: -5rem;
     height: 1.2rem;
     width: 1.2rem;
@@ -83,28 +73,19 @@
 }
 
 .private-post-preview__text-link {
-
-    // display: inline-block;
-    // position: absolute;
-
     cursor: pointer;
-    font-size: 1.4rem;
-    // text-decoration: underline;
+    font-size: 1.9rem;
     color: #9c9c9c;
 
     &:hover {
         color: #525252;
     }
-
-    // margin-top: 3.5rem;
-    // margin-left: 36rem;
-
 }
 
 
 .private-text-post-preview__title {
     padding-top: 2rem;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     line-height: 1.1;
     color: #5a5a5a;
     text-align: right;
@@ -112,7 +93,7 @@
 }
 
 .private-text-post-preview__subtitle {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #5a5a5a;
     padding-top: 3rem;
     text-align: right;

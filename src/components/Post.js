@@ -5,13 +5,7 @@ import moment from 'moment';
 
 import { startSetPosts } from "../actions/posts";
 
-
-
-
 import Likes from "./Likes";
-
-
-
 
 class Post extends Component {
     componentDidMount() {
@@ -33,10 +27,6 @@ class Post extends Component {
 
         const article = this.props.post.text;
         let articleParagraphs = article.split('\n');
-
-
-        console.log('this is the post: ', this.props.post)
-
 
         return (
 
@@ -71,7 +61,7 @@ class Post extends Component {
                         <Likes paramsId={this.props.post.id} />
 
                         <div className="post__social-right">
-                            <p className="post__social--name">by Cat Tester</p>
+                            <p className="post__social--name">by Emil</p>
                             <p className="post__social--date">{date}</p>
                         </div>
 
@@ -90,7 +80,6 @@ class Post extends Component {
 
 
 const mapStateToProps = (state, props) => {
-    console.log('props', props);
     return {
         post: state.posts.find((item) => item.id === props.paramsId)
     };
