@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const dotenv = require('dotenv');
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
@@ -14,6 +15,11 @@ if (process.env.NODE_ENV === "test") {
 module.exports = env => {
     const isProduction = env === "production";
     const CSSExtract = new ExtractTextPlugin("styles.css");
+    const env2 = dotenv.config().parsed;
+    const envKeys = Object.keys(env2).reduce((prev, next) => {
+        prev[`process.env.${next}`] = JSON.stringify(env2[next]);
+        return prev;
+      }, {});
     return {
         entry: ['babel-polyfill', "./src/app.js"],
         output: {
@@ -50,6 +56,7 @@ module.exports = env => {
         },
         plugins: [
             CSSExtract,
+            new webpack.DefinePlugin(envKeys)
         ],
         devtool: isProduction ? "source-map" : "inline-source-map",
         devServer: {

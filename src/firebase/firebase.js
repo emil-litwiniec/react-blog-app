@@ -9,7 +9,7 @@ const config = {
     messagingSenderId: "740087978540"
 };
 
-console.log(process.env);
+console.log(process.env.FIREBASE_API_KEY);
 
 
 firebase.initializeApp(config);
