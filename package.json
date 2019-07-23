@@ -9,7 +9,7 @@
         "build:prod": "webpack -p --env production",
         "dev-server": "webpack-dev-server",
         "start": "node server/server.js",
-        "heroku-postbuild": "yarn run build:prod"
+        "heroku-postbuild": "npm run build:prod"
     },
     "dependencies": {
         "@babel/cli": "^7.2.3",
@@ -49,5 +49,8 @@
         "dotenv": "^7.0.0",
         "live-server": "^1.2.1",
         "webpack-dev-server": "2.5.1"
+    },
+    "engines": {
+        "node": "10.16.0"
     }
 }
