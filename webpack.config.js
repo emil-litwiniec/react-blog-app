@@ -84,7 +84,6 @@ module.exports = env => {
                 minRatio: 0.8,
                 deleteOriginalAssets: false,
               }),
-              new BundleAnalyzerPlugin(),
         ],
         devtool: isProduction ? "source-map" : "inline-source-map",
         devServer: {
