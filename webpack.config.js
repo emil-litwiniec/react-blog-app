@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CompressionPlugin = require('compression-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -67,23 +66,7 @@ module.exports = env => {
                     process.env.FIREBASE_MESSAGING_SENDER_ID
                 )
             }),
-            new MomentLocalesPlugin(),
-            isProduction && new CompressionPlugin({
-                filename: '[path].gz[query]',
-                algorithm: 'gzip',
-                test: /\.js$/,
-                threshold: 10240,
-                minRatio: 0.8
-              }),
-            isProduction && new CompressionPlugin({
-                filename: '[path].br[query]',
-                algorithm: 'brotliCompress',
-                test: /\.js$/,
-                compressionOptions: { level: 11 },
-                threshold: 10240,
-                minRatio: 0.8,
-                deleteOriginalAssets: false,
-              }),
+            new MomentLocalesPlugin()
         ],
         devtool: isProduction ? "source-map" : "inline-source-map",
         devServer: {
