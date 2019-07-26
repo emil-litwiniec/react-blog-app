@@ -6,7 +6,7 @@
     "license": "MIT",
     "scripts": {
         "build:dev": "webpack",
-        "build:prod": "npm install && webpack -p --env production",
+        "build:prod": "webpack -p --env production",
         "dev-server": "webpack-dev-server",
         "start": "node server/server.js",
         "heroku-postbuild": "npm run build:prod"
@@ -23,6 +23,7 @@
         "compression-webpack-plugin": "^3.0.0",
         "css-loader": "0.28.4",
         "express": "^4.16.4",
+        "express-static-gzip": "^1.1.3",
         "firebase": "^5.9.0",
         "history": "^4.9.0",
         "mini-css-extract-plugin": "^0.8.0",
@@ -51,6 +52,7 @@
     "devDependencies": {
         "dotenv": "^7.0.0",
         "live-server": "^1.2.1",
+        "webpack-bundle-analyzer": "^3.3.2",
         "webpack-dev-server": "2.5.1"
     },
     "engines": {

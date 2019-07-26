@@ -1,5 +1,5 @@
 const express = require("express");
-import expressStaticGzip from "express-static-gzip";
+const expressStaticGzip = require("express-static-gzip");
 const path = require("path");
 
 const app = express();
