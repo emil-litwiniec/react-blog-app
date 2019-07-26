@@ -33,7 +33,7 @@ const PostPreview = ({ id, title, subtitle, createdAt, likes, image, startRemove
 
 
         <div className="private-post-preview">
-            <img className="private-post-preview__image" id={id} src="" alt="Post image..." />
+            <img id={id} className="private-post-preview__image" src="images/grey_3.jpg" alt="Post image..."/>
             <div className="private-post-preview__info">
                 <div className="private-post-preview__info-date">
 

@@ -3,11 +3,12 @@
     flex-direction: column;
     position: sticky;
 
-    height: 11.4rem;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    height: 12rem;
+    border-bottom: 1px solid lightgrey;
+
 
     &__title {
-
+        font-family: $font-logo;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -20,11 +21,11 @@
     flex-direction: column;
     position: sticky;
 
-    height: 12.5rem;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    height: 13.5rem;
+    border-bottom: 1px solid lightgrey;
 
     &__title {
-
+        font-family: $font-logo;
         display: flex;
         flex-direction: row;
         justify-content: center;

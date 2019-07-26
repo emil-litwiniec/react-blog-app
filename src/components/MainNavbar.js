@@ -11,6 +11,7 @@ import { startLogout } from "../actions/auth";
 const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
 
     const handleSearch = (e) => {
+        
         setTextFilter(e.target.value)
     }
 
@@ -31,6 +32,7 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
 
     }
 
+
     const URL = document.URL;
     const regex = /post/gm;
     const isPostPage = URL.search(regex) === -1 ? false : true;
@@ -47,8 +49,11 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
                 </div>
 
                 {!isPostPage &&
-                    <form onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave} className="search-bar">
+                    <form 
+                    id="search-form"
+                    onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave} 
+                        className="search-bar">
                         <input
                             className="private-search-bar__input"
                             onChange={handleSearch}
@@ -56,7 +61,7 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
                             placeholder="Search posts"
                             type="text"
                         />
-                        <img id="searchBarIcon" className="private-search-bar__icon" src="./images/search.svg" alt="Search icon" />
+                        <button type="submit"><img id="searchBarIcon" className="private-search-bar__icon" src="./images/search.svg" alt="Search icon" /></button>
                     </form>
                 }
 

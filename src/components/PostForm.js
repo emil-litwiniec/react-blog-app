@@ -36,7 +36,6 @@ export default class PostForm extends Component {
         } else {
             this.setState(() => ({ error: "" }));
             this.props.onSubmit({
-                // id: this.state.id,
                 title: this.state.title,
                 subtitle: this.state.subtitle,
                 text: this.state.text,

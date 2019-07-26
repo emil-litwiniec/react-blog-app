@@ -112,8 +112,7 @@ export const startSetPosts = () => {
 }
 
 export const addComment = (id, comment) => {
-    console.log('addComment id:', id);
-    console.log('addComment comment:', comment);
+    console.log(id);
     return {
         type: "ADD_COMMENT",
         id,
@@ -123,21 +122,15 @@ export const addComment = (id, comment) => {
 
 export const startAddComment = (id, commentData = { comments: [] }) => {
     return (dispatch) => {
-
-        console.log("id: ", id, " commentData: ", commentData)
         const {
             comments
         } = commentData;
 
-        const comment = {};
 
         return database
             .ref(`posts/${id}/comments`)
             .set(comments)
             .then(ref => {
-
-                console.log('then id:', id);
-                console.log('then comments:', comments);
                 dispatch(addComment(
                     id,
                     {
@@ -173,7 +166,6 @@ export const substractLike = (id) => ({
 
 export const startSubstractLike = (id, currentLikes) => {
     if (currentLikes > 0) {
-        console.log('substracting likes from fireabase')
         return (dispatch) => {
             return database
                 .ref(`posts/${id}`)
@@ -206,7 +198,7 @@ export const startAddCommentLike = (postId, comment, commentIndex) => {
             .then(() => {
                 dispatch(addCommentLike(postId, id))
             })
-            .catch(e => console.log("startAddCommentLike errror: ", e))
+            .catch(e => console.log(e))
 
     }
 
@@ -234,7 +226,7 @@ export const startSubstractCommentLike = (postId, comment, commentIndex) => {
                 .then(() => {
                     dispatch(substractCommentLike(postId, id))
                 })
-                .catch(e => console.log("startAddCommentLike errror: ", e))
+                .catch(e => console.log(e))
 
         }
     }

@@ -13,7 +13,6 @@ class Likes extends Component {
     }
 
     handleLike = () => {
-        console.log(this.props.startAddLike)
         this.props.startAddLike(this.props.post.id, this.props.post.likes);
         this.setState({ isLiked: true });
     }

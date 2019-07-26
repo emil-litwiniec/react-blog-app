@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
@@ -15,6 +17,7 @@ module.exports = env => {
     const CSSExtract = new ExtractTextPlugin("styles.css");
    
     return {
+        mode: isProduction ? 'production' : 'development',
         entry: ['babel-polyfill', "./src/app.js"],
         output: {
             path: path.join(__dirname, "public", "dist"),
@@ -69,7 +72,24 @@ module.exports = env => {
                 "process.env.FIREBASE_MESSAGING_SENDER_ID": JSON.stringify(
                     process.env.FIREBASE_MESSAGING_SENDER_ID
                 )
-            })
+            }),
+            new MomentLocalesPlugin(),
+            isProduction && new CompressionPlugin({
+                filename: '[path].gz[query]',
+                algorithm: 'gzip',
+                test: /\.js$/,
+                threshold: 10240,
+                minRatio: 0.8
+              }),
+            isProduction && new CompressionPlugin({
+                filename: '[path].br[query]',
+                algorithm: 'brotliCompress',
+                test: /\.js$/,
+                compressionOptions: { level: 11 },
+                threshold: 10240,
+                minRatio: 0.8,
+                deleteOriginalAssets: false,
+              }),
         ],
         devtool: isProduction ? "source-map" : "inline-source-map",
         devServer: {

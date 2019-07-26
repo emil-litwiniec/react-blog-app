@@ -28,7 +28,7 @@ const PublicPostPreview = ({ id, title, subtitle, createdAt, likes, image }) => 
 
     return (
         <div className="post-preview">
-            <img className="post-preview__image" id={id} src="" alt="Post image..." />
+            <img className="post-preview__image" id={id} src="/images/grey_3.jpg" alt="Post image..." />
             <div className="post-preview__info">
                 <div className="post-preview__info-date">
                     <p className="text-post-preview-info">{date}</p>

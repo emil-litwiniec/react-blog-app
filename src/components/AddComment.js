@@ -24,7 +24,7 @@ class AddComment extends Component {
 
         this.props.onSubmit({
             id: uuid(),
-            author: this.state.author,
+            author: this.state.author == '' ? 'Anonymous' : this.state.author,
             createdAt: moment().unix(),
             text: this.state.text,
             likes: this.state.likes
