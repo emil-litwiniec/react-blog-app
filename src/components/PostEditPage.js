@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import PostForm from "./PostForm";
 import { startEditPost } from "../actions/posts";
 
-import SimpleBar from 'simplebar-react';
-
-import 'simplebar/dist/simplebar.min.css';
-
 export class PostEditPage extends Component {
     onSubmit = (post) => {
         this.props.startEditPost(this.props.post.id, post);
@@ -17,9 +13,6 @@ export class PostEditPage extends Component {
     }
     render() {
         return (
-
-
-            <SimpleBar>
                 <div className="create-post">
                     <header className="create-post__header">
                         <h2 className="create-post__title" >Edit post</h2>
@@ -27,7 +20,6 @@ export class PostEditPage extends Component {
                     <PostForm onSubmit={this.onSubmit} onAbort={this.onAbort} post={this.props.post} />
 
                 </div>
-            </SimpleBar>
         )
     }
 }

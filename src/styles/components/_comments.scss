@@ -14,7 +14,7 @@
     margin-top: 2rem;
     display: flex;
     height: 16.8rem;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 
     &__avatar {
@@ -22,6 +22,7 @@
         width: 6rem;
         border-radius: 100%;
         margin: 0 1rem 1rem 1rem;
+        display: none;
 
         @media only screen and (max-width: 650px) {
             margin: 0 1rem 1rem 2rem;
@@ -32,7 +33,7 @@
         display: flex;
         flex-direction: column;
         flex: 1;
-        margin: 0 6rem 0 1.7rem;
+        margin: 0 2rem 0 2rem;
 
         &--right {
             display: flex;
@@ -89,9 +90,12 @@
 
 .comment {
     margin-top: 2rem;
+    margin-left: 2rem;
+    padding-top: 2rem;
     display: flex;
     min-height: 13rem;
     align-items: flex-start;
+    border-top: 1px solid lightgray;
 
 
 
@@ -100,6 +104,7 @@
         width: 6rem;
         border-radius: 100%;
         margin: 0 1rem 1rem 1rem;
+        display: none;
 
         @media only screen and (max-width: 650px) {
             margin: 0 1rem 1rem 2rem;
@@ -108,7 +113,7 @@
     }
 
     &__content {
-        margin-left: 1.7rem;
+        margin-left: 2.7rem;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -117,6 +122,7 @@
             display: flex;
             justify-content: space-between;
             position: relative;
+            align-items: center;
 
         }
     }
@@ -124,26 +130,29 @@
     &-info {
 
         &__author {
-            font-size: 2.3rem;
+            font-size: 1.9rem;
             color: #5a5a5a;
         }
 
         &__date {
             position: absolute;
-            top: 3px;
-            left: 36rem;
+            top: 4.4px;
+            left: 70%;
             font-family: $font-primary;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             color: #5a5a5a;
+            width: 10rem;
 
             @media only screen and (max-width: 500px) {
-                left: 26rem;
+                left: 45%;
+                margin-right: 2rem;
             }
         }
 
         &__likes {
             display: flex;
             position: relative;
+            height: 3.5rem;
         }
 
         &__likes-amount {
@@ -206,7 +215,7 @@
     &__text {
         margin: 1.5rem 6rem 0 0;
         font-family: $font-secondary;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #a7a6a6;
         text-align: justify;
         line-height: 1.7;

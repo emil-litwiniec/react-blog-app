@@ -40,13 +40,13 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
 
     return (
         <nav className="private-header-navbar">
-            <ul className="private-header-navbar__list">
+            <div className="private-header-navbar__list">
 
-                <div className="private-header-navbar__list-container">
+                <ul className="private-header-navbar__list-container">
                     <li className="private-header-navbar__list-node text-navbar-link" onClick={startLogout}>Logout</li>
 
                     <li className="private-header-navbar__list-node"><NavLink className="private-header-navbar__list-node text-navbar-link" to="/Create">Create</NavLink></li>
-                </div>
+                </ul>
 
                 {!isPostPage &&
                     <form 
@@ -60,12 +60,13 @@ const MainNavbar = ({ setTextFilter, filters, startLogout, match }) => {
                             value={filters.text}
                             placeholder="Search posts"
                             type="text"
+                            name="Search input"
                         />
                         <button type="submit"><img id="searchBarIcon" className="private-search-bar__icon" src="./images/search.svg" alt="Search icon" /></button>
                     </form>
                 }
 
-            </ul>
+            </div>
         </nav>
     )
 

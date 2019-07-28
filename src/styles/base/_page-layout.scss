@@ -13,12 +13,13 @@
 
 .main {
     grid-column: 2 / 3;
-    height: 100%;
+
     width: 100%;
     position: absolute;
 
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
+    padding-bottom: 10rem;
 
 }
 
@@ -36,7 +37,6 @@
 
 .post-preview-list {
     width: 100%;
-    height: 86vh;
 }
 
 .side-left {
@@ -55,20 +55,20 @@
     z-index: 80;
 }
 
-.simplebar-scrollbar {
-    position: absolute;
-    right: 2px;
-    width: 100px;
-    min-height: 10px;
-}
+// .simplebar-scrollbar {
+//     position: absolute;
+//     right: 2px;
+//     width: 100px;
+//     min-height: 10px;
+// }
 
-.simplebar-scrollbar:before {
-    position: absolute;
-    content: "";
-    background: black;
-    border-radius: 4px;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    transition: opacity 0.2s linear;
-}
+// .simplebar-scrollbar:before {
+//     position: absolute;
+//     content: "";
+//     background: black;
+//     border-radius: 4px;
+//     left: 0;
+//     right: 0;
+//     opacity: 0;
+//     transition: opacity 0.2s linear;
+// }

@@ -64,6 +64,7 @@ class AddComment extends Component {
                         type="text"
                         onChange={this.onAuthorChange}
                         ref={this.textInput}
+                        name="Author's name"
                     />
                     <div className="add-comment__form--right" >
                         <textarea

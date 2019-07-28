@@ -61,7 +61,6 @@ class Post extends Component {
                         <Likes paramsId={this.props.post.id} />
 
                         <div className="post__social-right">
-                            <p className="post__social--name">by Emil</p>
                             <p className="post__social--date">{date}</p>
                         </div>
 

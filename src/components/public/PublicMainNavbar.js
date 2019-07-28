@@ -35,11 +35,11 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin }) => {
 
     return (
         <nav className="header-navbar">
-            <ul className="header-navbar__list">
+            <div className="header-navbar__list">
 
-                <div className="header-navbar__list-container">
+                <ul className="header-navbar__list-container">
                     <li className="header-navbar__list-node text-navbar-link" onClick={startLogin}>Login</li>
-                </div>
+                </ul>
 
                 {!isPostPage &&
                     <form onMouseEnter={handleMouseEnter}
@@ -47,15 +47,16 @@ const PublicMainNavbar = ({ setTextFilter, filters, startLogin }) => {
                         <input
                             className="search-bar__input"
                             onChange={handleSearch}
-                            value={filters.text}
+                            value={filters.text}div
                             placeholder="Search posts"
                             type="text"
+                            name="Search input"
                         />
                         <img id="searchBarIcon" className="search-bar__icon" src="./images/search.svg" alt="Search icon" />
                     </form>
                 }
 
-            </ul>
+            </div>
         </nav>
     )
 }

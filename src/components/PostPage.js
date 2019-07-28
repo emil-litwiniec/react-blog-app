@@ -4,10 +4,6 @@ import { connect } from "react-redux";
 
 import { startSetPosts } from "../actions/posts";
 
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
-
-
 import PublicMainHeader from "./public/PublicMainHeader";
 import MainHeader from "./MainHeader";
 import Post from "./Post";
@@ -29,10 +25,10 @@ const PostPage = ({ isAuthenticated, ...props }) => {
 
                 <section className="post-container">
                     {!props.post ? <p>Loading</p> :
-                        <SimpleBar>
+                        <>
                             <Post paramsId={paramsId} />
                             <CommentsList postId={paramsId} />
-                        </SimpleBar>
+                        </>
                     }
                 </section>
 
