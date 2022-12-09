@@ -21,7 +21,7 @@
         "babel-loader": "^8.0.5",
         "babel-polyfill": "^6.26.0",
         "css-loader": "0.28.4",
-        "express": "^4.16.4",
+        "express": "^4.17.3",
         "firebase": "^5.9.0",
         "history": "^4.9.0",
         "mini-css-extract-plugin": "^0.8.0",
