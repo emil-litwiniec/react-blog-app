@@ -7,10 +7,6 @@ Loosely inspired by Medium.
 
 Made to summarize knowledge about React, Redux and Firebase.
 
-## Live 
-https://blogster-react-app.herokuapp.com/
-> Notice: The app is hosted on Heroku, so the initial load may take some time. Please, give it a few seconds.
-
 ## Guide
 You can use it as a guest or you can login with your Google account to modify data.</br>
 For the demonstration purpose, everyone with Google account can access admin route.</br>
